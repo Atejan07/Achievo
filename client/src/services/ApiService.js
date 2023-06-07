@@ -1,8 +1,8 @@
 const BASE_URL = 'http://localhost:3001';
 
-const apiServiceJWT = {};
+const apiService = {};
 
-apiServiceJWT.register = (user) => {
+apiService.register = (user) => {
   return fetch(`${BASE_URL}/register`, {
     method: 'POST',
     credentials: 'include',
@@ -14,7 +14,7 @@ apiServiceJWT.register = (user) => {
     .catch((err) => console.log(err));
 };
 
-// apiServiceJWT.login = (user) => {
+// apiService.login = (user) => {
 //   // REMOVE-START
 //   return fetch(`${BASE_URL}/login`, {
 //     method: 'POST',
@@ -28,7 +28,7 @@ apiServiceJWT.register = (user) => {
 //   // REMOVE-END
 // };
 
-// apiServiceJWT.profile = (accessToken) => {
+// apiService.profile = (accessToken) => {
 //   // REMOVE-START
 //   return fetch(`${BASE_URL}/me`, {
 //     method: 'GET',
@@ -44,7 +44,7 @@ apiServiceJWT.register = (user) => {
 //   // REMOVE-END
 // };
 
-// apiServiceJWT.logout = (tokenName) => {
+// apiService.logout = (tokenName) => {
 //   // REMOVE-START
 //   // delete token from local storage here
 //   localStorage.removeItem(tokenName);
@@ -63,4 +63,4 @@ apiServiceJWT.register = (user) => {
 //   // REMOVE-END
 // };
 
-export default apiServiceJWT;
+export default apiService;
