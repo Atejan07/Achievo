@@ -1,12 +1,12 @@
 const { Schema, model } = require("./index");
 
 const goalsSchema = new Schema({
-  title: {type: String, required: true},
-  goalDescription: String,
-  deadline: {Date, default: Date.now()},
-  important: Boolean
+  title: { type: String, required: true },
+  description: String,
+  deadline: Date ,
+  important: Boolean,
 });
 
-const Goals = model('Goals', goalsSchema)
+const Goals = model("Goals", goalsSchema);
 
 module.exports = Goals;

@@ -1,12 +1,12 @@
-const jwt = require('jsonwebtoken');
-const User = require('./../models/user');
-const SECRET_KEY = process.env.SECRET_KEY ;
+const jwt = require("jsonwebtoken");
+const User = require("./../models/user");
+const SECRET_KEY = process.env.SECRET_KEY;
 
 const authMiddleware = async (req, res, next) => {
-  const authHeaders = req.headers['authorization'];
+  const authHeaders = req.headers["authorization"];
   if (!authHeaders) return res.sendStatus(403);
   //splitting for bearer
-  const token = authHeaders.split(' ')[1];
+  const token = authHeaders.split(" ")[1];
 
   try {
     const { _id } = jwt.verify(token, SECRET_KEY);
