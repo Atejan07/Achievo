@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = ({ isAuthenticated }) => {
   return (
-    <nav>
+    <nav className='nav'>
       <ul>
         {isAuthenticated ? (
           <>

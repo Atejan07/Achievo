@@ -1,0 +1,31 @@
+body{
+background-color: rgba(26, 26, 26, 0.84);
+display: flex;
+align-content: space-between;
+margin:0px;
+}
+
+li{
+list-style: none;
+}
+
+.right-side-home{
+background-repeat: repeat;
+background-position: center;
+background-size: cover;
+background-color: blueviolet;
+background-image:linear-gradient(to bottom right, #8800ff, rgb(220, 32, 230));
+width: 700px;
+height:100vh;
+margin-left: 800px;
+}
+
+.left-side-form{
+color: white;
+}
+
+
+.logo-home{
+margin-top: 10px;
+width: 300px;
+}

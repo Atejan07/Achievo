@@ -14,10 +14,6 @@ export default function Dashboard({ setIsAuthenticated }) {
         path="/register"
         element={<Register setIsAuthenticated={setIsAuthenticated} />}
       />
-      <Route
-        path="/login"
-        element={<Login setIsAuthenticated={setIsAuthenticated} />}
-      />
       <Route path="/profile" element={<Profile />} />
       <Route
         path="/logout"

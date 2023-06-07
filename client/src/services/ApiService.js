@@ -14,19 +14,18 @@ apiService.register = (user) => {
     .catch((err) => console.log(err));
 };
 
-// apiService.login = (user) => {
-//   // REMOVE-START
-//   return fetch(`${BASE_URL}/login`, {
-//     method: 'POST',
-//     credentials: 'include',
-//     mode: 'cors',
-//     headers: { 'Content-Type': 'application/json' },
-//     body: JSON.stringify(user),
-//   })
-//     .then((res) => res.json())
-//     .catch((err) => console.log(err));
-//   // REMOVE-END
-// };
+apiService.login = (user) => {
+  return fetch(`${BASE_URL}/login`, {
+    method: 'POST',
+    credentials: 'include',
+    mode: 'cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(user),
+  })
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
+
+};
 
 // apiService.profile = (accessToken) => {
 //   // REMOVE-START
