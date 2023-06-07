@@ -1,4 +1,3 @@
-const mongoose = require("mongoose");
 const { Schema, model } = require("./index");
 
 const categoriesSchema = new Schema({
@@ -6,6 +5,6 @@ const categoriesSchema = new Schema({
   goals: [{ type: Schema.Types.ObjectId, ref: "Goals" }],
 });
 
-const Categories = model('categories', categoriesSchema)
+const Categories = model('Categories', categoriesSchema)
 
-module.exports = {Categories};
+module.exports = Categories;

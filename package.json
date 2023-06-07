@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Atejan07/Achievo/issues"
   },
-  "homepage": "https://github.com/Atejan07/Achievo#readme"
+  "homepage": "https://github.com/Atejan07/Achievo#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0"
+  }
 }

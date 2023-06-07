@@ -1,14 +1,13 @@
-const mongoose = require("mongoose");
 const { Schema, model } = require("./index");
 
 const userSchema = new Schema({
-  userName: { String, required: true },
-  gmail: { String, required: true },
-  password: { String, required: true },
+  userName: { type: String, required: true },
+  email: { type: String, required: true },
+  password: { type: String, required: true },
   categories: [{ type: Schema.Types.ObjectId, ref: "Categories" }],
 });
 
 
-const User = model('categories', userSchema)
+const User = model('User', userSchema)
 
-module.exports = {User};
+module.exports = User;
