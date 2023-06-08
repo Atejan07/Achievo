@@ -1,13 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom';
+import CategoryForm from './CategoryForm';
+import { getCategories } from '../services/Categories';
 import Navbar from './Navbar';
-import CategoryList from './CategoryList';
+import CategoryList from './CategoryLIst';
 
 export default function Profile() {
+
+const [items, setItem] = useState([]);
+
+useEffect(() => {
+getCategories().then(data => {
+console.log(data)
+setItem(data)
+})
+}, [])
+
+
   return (
     <div>
      <Navbar></Navbar>
-     <CategoryList></CategoryList>
+     <CategoryForm setItem={setItem}></CategoryForm>
+     <CategoryList  items={items} setItem={setItem}></CategoryList>
     </div>
   )
 }
