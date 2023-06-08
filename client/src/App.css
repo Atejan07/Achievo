@@ -15,7 +15,7 @@ background-position: top;
 background-size: 100% auto;
 margin: 0;
 padding: 0;
-width: 800px;
+width: 550px;
 height: 100vh;
 position: relative;
 left: 900px;
@@ -193,7 +193,7 @@ display: flex;
 lottie-player{
 width: 500px;
 display:flex;
-margin-left: 25px;
+margin-left: 35px;
 justify-content: center;
 }
 
@@ -202,4 +202,11 @@ justify-content: center;
 height: 100vh;
 background: linear-gradient( #8800ff, #dc20e6);
 width: 220px;
+}
+
+.nav-logo{
+position: absolute;
+height: 50px;
+margin-top: 10px;
+margin-left: 10px;
 }

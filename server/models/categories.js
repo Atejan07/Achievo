@@ -29,4 +29,5 @@ const getCategories= async () => {
   };
   
 
-module.exports = {Categories, getCategories, addCategory, deleteCategory};
+module.exports = { Categories, getCategories, addCategory, deleteCategory};
+

@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import logo from "../images/nav-logo.png";
 
 const Navbar = ({ isAuthenticated }) => {
   return (
     <nav className='nav'>
+      <img src={logo} className="nav-logo" />
       <ul>
         {/* {isAuthenticated ? (
           <>
