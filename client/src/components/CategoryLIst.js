@@ -1,7 +1,10 @@
 import React from 'react'
+import Category from './Category'
 
-export default function CategoryLIst() {
+export default function CategoryList() {
   return (
-    <div>CategoryLIst</div>
+    <div>
+      <Category></Category>
+    </div>
   )
 }

@@ -5,7 +5,7 @@ const Navbar = ({ isAuthenticated }) => {
   return (
     <nav className='nav'>
       <ul>
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? (
           <>
             <li>
               <Link to="/profile">Profile</Link>
@@ -23,7 +23,10 @@ const Navbar = ({ isAuthenticated }) => {
               <Link to="/login">Login</Link>
             </li>
           </>
-        )}
+        )} */}
+       {/* <li>
+       <Link to="/visionboard">Vision Board</Link>
+       </li> */}
       </ul>
     </nav>
   );

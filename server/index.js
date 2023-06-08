@@ -1,6 +1,7 @@
 const express = require ('express');
 const cors = require('cors');
-const router = require('./routes/user')
+const userRouter = require('./routes/user')
+const categoriesRouter = require('./routes/categories')
 const app = express();
 
   
@@ -11,7 +12,8 @@ app.use(cors());
 // 2nd always json
 app.use(express.json());
 // 3rd always router
-app.use(router);
+app.use(userRouter);
+app.use(categoriesRouter);
 
   
   
