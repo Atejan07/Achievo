@@ -5,11 +5,18 @@ const categoriesRouter = require('./routes/categories')
 const goalsRouter = require('./routes/goals')
 const app = express();
 
-  
+
+
+
+const corsConfig = {
+    // REMOVE-START
+    origin: 'http://localhost:3000',
+    credentials: true,
+    // REMOVE-END
+  };
   
 
-// 1st always cors
-app.use(cors());
+app.use(cors(corsConfig));
 // 2nd always json
 app.use(express.json());
 // 3rd always router

@@ -15,16 +15,16 @@ const getCategories= async () => {
   };
   
  const addCategory= async (category, userId) => {
-  console.log(category);
-   const res = await Categories.create({ title: category});
-   console.log(res._id)
-   const result = await User.findOneAndUpdate({_id: userId}, {$push: { categories: res._id}}, {new: true})
-   console.log(result)
-   return res;
+  // console.log(category);
+   const newCategory = await Categories.create({ title: category});
+  //  console.log(res._id)
+   const result = await User.findOneAndUpdate({_id: userId}, {$push: { categories: newCategory._id}}, {new: true})
+   console.log('this one', userId)
+   return newCategory;
   };
   
   const deleteCategory = async (id) => {
-  const deletedTopic = await Categories.findOneAndDelete(id)
+  const deletedTopic = await Categories.findOneAndDelete({_id: id})
   return deletedTopic;
   };
   

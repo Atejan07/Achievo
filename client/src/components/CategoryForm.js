@@ -11,7 +11,8 @@ const categoryTitle = title;
 if (!categoryTitle) return alert('Need to provide a Category');
 setTitle('');
 const category = {
-title: categoryTitle
+title: categoryTitle,
+// userId: 
 };
 postCategory(category).then((newItem)=>{
 console.log(newItem);
@@ -20,9 +21,12 @@ setItem((items) => [...items, newItem])
 };
   return (
     <div>
-      <input type="text" title={title}  onChange={(e) => setTitle(e.target.value)}
-        placeholder="Category"></input>
-        <button onClick={submitItem}>Add</button>
+      <div className="form__group field">
+      <input type="input" title={title}  onChange={(e) => setTitle(e.target.value)}
+        placeholder="Category" className='form__field' id='Category' ></input>
+        <label htmlFor="name"  className="form__label">Category</label>
+       </div>
+      <button onClick={submitItem} className='button-input'>Add</button>
       </div>
   )
 }

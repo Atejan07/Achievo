@@ -8,33 +8,20 @@ import Navbar from './components/Navbar';
 import Register from './components/Register'
 import Logout from './components/Logout'
 import Profile from './components/Profile'
-import auth from './utils/auth'
 import { BrowserRouter as Router } from 'react-router-dom';
+import Dashboard from './components/Dashboard';
+
+
 
 
 function App() {
-  const initialState = auth.isAuthenticated();
-  const [isAuthenticated, setIsAuthenticated] = useState(initialState);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   return (
     <div className="App">
     <Router>
-    <Routes>
-      <Route
-        path="/register"
-        element={<Register setIsAuthenticated={setIsAuthenticated} />}
-      />
-      <Route path="/profile" element={<Profile />} />
-      <Route
-        path="/logout"
-        element={<Logout setIsAuthenticated={setIsAuthenticated} />}
-      />
-      <Route path="/" element={<Home setIsAuthenticated={setIsAuthenticated} />} />
-
-    {/* <Navbar Authenticated={isAuthenticated}></Navbar> */}
-    {/* <Home setIsAuthenticated={setIsAuthenticated}></Home> */}
-    {/* <Dashboard setIsAuthenticated={ setIsAuthenticated }></Dashboard> */}
-    </Routes>
+    <Navbar setIsAuthenticated={setIsAuthenticated} ></Navbar>
+      <Dashboard setIsAuthenticated={setIsAuthenticated} ></Dashboard>
     </Router>
     </div>
   );

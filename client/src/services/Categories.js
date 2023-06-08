@@ -4,7 +4,6 @@ const URL = "http://localhost:3001";
 export async function getCategories(){
 const res = await fetch(URL + '/categories');
 const json= await res.json();
-//sorts the list
 return json;
 }
 

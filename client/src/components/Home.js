@@ -3,30 +3,49 @@ import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import apiService from "../services/ApiService";
 import logo from "../images/logo.png";
+import { useNavigate } from 'react-router-dom';
 
-export default function Home({ setIsAuthenticated }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [userName, setUserName] = useState("");
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    apiService
-      .login({
-        email: email,
-        userName: userName,
-        password: password,
-      })
-      .then((data) => {
-        setEmail("");
-        setUserName("");
-        setPassword("");
-      });
-  }
-
-  const validateForm = () => {
-    return !email || !password || !userName;
+  const initialState = {
+    email: '',
+    password: '',
   };
+  
+  export default function Home({ setIsAuthenticated }) {
+
+    let navigate = useNavigate();
+    const [state, setState] = useState(initialState);
+  
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setState((prevState) => ({
+        ...prevState,
+        [name]: value,
+      }));
+    };
+  
+    const handleSubmit = async (e) => {
+      // Check the session branch to see how to handle redirects
+      // REMOVE-START
+      e.preventDefault();
+      const { email, password } = state;
+      const user = { email, password };
+      const res = await apiService.login(user);
+  
+      if (res.error) {
+        alert(`${res.message}`);
+        setState(initialState);
+      } else {
+        const { accessToken } = res;
+        localStorage.setItem('accessToken', accessToken);
+        setIsAuthenticated(true);
+        navigate('/profile');
+      }
+      // REMOVE-END
+    };
+  
+    const validateForm = () => {
+      return !state.email || !state.password;
+    };
 
   return (
     <div className="login">
@@ -35,23 +54,23 @@ export default function Home({ setIsAuthenticated }) {
         <div className="login-box">
           <h1>Log In</h1>
           <form className="user-box" onSubmit={handleSubmit}>
-            <input
+            {/* <input
               type="text"
               placeholder="username"
-              value={userName}
-              onChange={(e) => setUserName(e.target.value)}
-            ></input>
+              value={state.userName}
+              onChange={handleChange}
+            ></input> */}
             <input
               type="text"
               placeholder="name@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={state.email}
+              onChange={handleChange}
             ></input>
             <input
               type="text"
               placeholder="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={state.password}
+              onChange={handleChange}
             ></input>
             <button
               type="submit"

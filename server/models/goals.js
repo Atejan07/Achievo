@@ -32,7 +32,7 @@ const getGoals= async () => {
   };
   
   const deleteGoal = async (id) => {
-  const deletedTopic = await Goals.findOneAndDelete(id)
+  const deletedTopic = await Goals.findOneAndDelete({_id: id})
   return deletedTopic;
   };
 

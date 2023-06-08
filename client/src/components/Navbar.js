@@ -4,10 +4,10 @@ import logo from "../images/nav-logo.png";
 
 const Navbar = ({ isAuthenticated }) => {
   return (
-    <nav className='nav'>
-      <img src={logo} className="nav-logo" />
+    <nav className='nav-register'>
+      {/* <img src={logo} className="nav-logo" /> */}
       <ul>
-        {/* {isAuthenticated ? (
+        {isAuthenticated ? (
           <>
             <li>
               <Link to="/profile">Profile</Link>
@@ -25,10 +25,7 @@ const Navbar = ({ isAuthenticated }) => {
               <Link to="/login">Login</Link>
             </li>
           </>
-        )} */}
-       {/* <li>
-       <Link to="/visionboard">Vision Board</Link>
-       </li> */}
+        )} 
       </ul>
     </nav>
   );

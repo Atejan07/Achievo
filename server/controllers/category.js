@@ -17,7 +17,7 @@ const getCategories = async (req,res) => {
     
     const addCategory = async (req,res) => {
     try{
-    console.log(req.body.userId)
+    // console.log(req.body.userId)
     let category= await model.addCategory(req.body.title, req.body.userId)
     res.status = 201;
     //console.log(category)
@@ -33,8 +33,10 @@ const getCategories = async (req,res) => {
     const deleteCategory = async (req,res) => {
     try{
     let id = req.params.id;
+    console.log(id)
     let deleteItem = await model.deleteCategory(id)
-    res.status = 200;
+    res.status = 202;
+    console.log(deleteItem)
     res.json(deleteItem)
     }catch(error){
     res.status = 400;
