@@ -8,8 +8,9 @@ import apiService from '../services/ApiService'
 import { useNavigate } from 'react-router-dom';
 
 
-export default function Profile() {
 
+
+export default function Profile({ setIsAuthenticated , setUser, user}) {
   const initialState = {
     userName: '',
   };
@@ -20,7 +21,6 @@ const [state, setState] = useState(initialState);
 
 useEffect(() => {
 getCategories().then(data => {
-console.log(data)
 setItem(data)
 })
 }, [])
@@ -50,6 +50,7 @@ setItem(data)
 
   return (
     <div className='profile-page'>
+    {user && <div style={{color: 'white'}}>hello {user.userName}</div>}
      <CategoryForm setItem={setItem}></CategoryForm>
      <CategoryList  items={items} setItem={setItem}></CategoryList>
     </div>

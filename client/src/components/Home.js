@@ -10,7 +10,7 @@ const initialState = {
   password: "",
 };
 
-export default function Home({ setIsAuthenticated }) {
+export default function Home({ setIsAuthenticated , setUser}) {
   let navigate = useNavigate();
   const [state, setState] = useState(initialState);
 
@@ -24,16 +24,17 @@ export default function Home({ setIsAuthenticated }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { email, password } = state;
-    const user = { email, password };
-    const res = await apiService.login(user);
-
+    const res = await apiService.login(state);
+    // res= { accessToken : string, user: {...}}
+    
     if (res.error) {
       alert(`${res.message}`);
       setState(initialState);
     } else {
       const { accessToken } = res;
       localStorage.setItem("accessToken", accessToken);
+      const {user} = res;
+      setUser(user)
       setIsAuthenticated(true);
       navigate("/profile");
     }

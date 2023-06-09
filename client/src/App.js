@@ -10,6 +10,8 @@ import Logout from './components/Logout'
 import Profile from './components/Profile'
 import { BrowserRouter as Router } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
+import 'antd/dist/reset.css';
+import "./index.css";
 
 
 
@@ -17,9 +19,12 @@ import Dashboard from './components/Dashboard';
 
 function App() {
 const [isAuthenticated, setIsAuthenticated] = useState(false);
+const [user,setUser] = useState(null);
 
 function checkToken () {
   const accessToken = localStorage.getItem('accessToken');
+  const user = null; //implement api service with back end route that return user only using accessToken -> sends request to backend router -> with auth middleware -> finds out what the user was 
+  //refreshed and set as a user 
   if (accessToken) {
     setIsAuthenticated(true)
   }
@@ -29,12 +34,12 @@ useEffect(() => {
 }, [])
 
 
-
   return (
     <div className="App">
     <Router>
-    <Navbar setIsAuthenticated={setIsAuthenticated} ></Navbar>
-      <Dashboard setIsAuthenticated={setIsAuthenticated} ></Dashboard>
+    <Navbar isAuthenticated={isAuthenticated}></Navbar>
+      {/* {user && <div style={{color: 'white'}}>Hello {user.userName}</div>} */}
+      <Dashboard setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user}></Dashboard>
     </Router>
     </div>
   );

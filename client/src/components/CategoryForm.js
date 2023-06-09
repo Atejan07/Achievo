@@ -8,14 +8,14 @@ const [title, setTitle] = useState('');
 
 const submitItem= ()=> {
 const categoryTitle = title;
+
 if (!categoryTitle) return alert('Need to provide a Category');
 setTitle('');
 const category = {
 title: categoryTitle,
-// userId: 
 };
 postCategory(category).then((newItem)=>{
-console.log(newItem);
+// console.log(newItem);
 setItem((items) => [...items, newItem])
 });
 };

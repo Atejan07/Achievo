@@ -5,7 +5,7 @@ import Logout from '../components/Logout'
 import Home from '../components/Home'
 import Profile from '../components/Profile'
 
-export default function Dashboard({ setIsAuthenticated }) {
+export default function Dashboard({ setIsAuthenticated, setUser, user}) {
   return (
     <section className="dashboard">
     <Routes>
@@ -13,12 +13,12 @@ export default function Dashboard({ setIsAuthenticated }) {
         path="/register"
         element={<Register setIsAuthenticated={setIsAuthenticated} />}
       />
-      <Route path="/profile" element={<Profile/>} />
+      <Route path="/profile" element={<Profile setIsAuthenticated={ setIsAuthenticated }/>} />
       <Route
         path="/logout"
         element={<Logout setIsAuthenticated={setIsAuthenticated} />}
       />
-       <Route path="/" element={<Home setIsAuthenticated={setIsAuthenticated} />} />
+       <Route path="/" element={<Home setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user}/>} />
     </Routes>
   </section>
   )

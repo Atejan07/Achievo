@@ -2,10 +2,14 @@ import React from 'react'
 import { deleteCategory } from '../services/Categories';
 import { useState } from 'react';
 
-export default function Category({item, setItem}) {
-  console.log(item);
 
-  const handleDelete = () => {
+
+export default function Category({item, setItem}) {
+  // console.log(item);
+
+
+
+  const handleDelete = (e) => {
     console.log(item)
     deleteCategory(item._id).then((item) => {
       setItem((items) => items.filter((el) => el._id !== item._id));
@@ -13,7 +17,7 @@ export default function Category({item, setItem}) {
   };
 
   return (
-    <div className='category'>
+    <div >
       <h1>{item.title}</h1>
       <button onClick={handleDelete}>X</button>
     </div>
