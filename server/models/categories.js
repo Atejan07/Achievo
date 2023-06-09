@@ -19,7 +19,7 @@ const getCategories= async () => {
    const newCategory = await Categories.create({ title: category});
   //  console.log(res._id)
    const result = await User.findOneAndUpdate({_id: userId}, {$push: { categories: newCategory._id}}, {new: true})
-   console.log('this one', userId)
+  //  console.log('this one', userId)
    return newCategory;
   };
   

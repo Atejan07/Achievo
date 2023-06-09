@@ -11,7 +11,7 @@ const [goals, setGoal] = useState([]);
 
   useEffect(() => {
   getGoals().then(data => {
-  console.log(data)
+  // console.log(data)
   setGoal(data)
   })
   }, [])
