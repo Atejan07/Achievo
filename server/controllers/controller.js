@@ -28,10 +28,14 @@ const create = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  // REMOVE-START
   const { email, password } = req.body;
   try {
-    const user = await model.findOne({ email: email });
+    const user = await model.findOne({ email: email }).populate('categories');
+    console.log(user)
+    // const safeUser = {
+    //   userName: user.userName,
+    //   email: user.email,
+    // }
     const validatedPass = await bcrypt.compare(password, user.password);
     if (!validatedPass) throw new Error();
     const accessToken = jwt.sign({ _id: user._id }, SECRET_KEY);
@@ -41,7 +45,6 @@ const login = async (req, res) => {
       .status(401)
       .send({ error: "401", message: "Username or password is incorrect" });
   }
-  // REMOVE-END
 };
 
 const profile = async (req, res) => {
@@ -50,7 +53,7 @@ const profile = async (req, res) => {
     const { _id, userName } = req.user;
     const user = { _id, userName };
     res.status(200).send(user);
-  } catch {
+  } catch (error) {
     res.status(404).send({ error, message: "Resource not found" });
   }
   // REMOVE-END

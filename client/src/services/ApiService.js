@@ -18,7 +18,7 @@ apiService.register = (user) => {
 };
 
 apiService.login = (user) => {
-  console.log(user)
+  // console.log(user)
   return fetch(`${BASE_URL}/login`, {
     method: 'POST',
     credentials: 'include',
@@ -33,7 +33,7 @@ apiService.login = (user) => {
 
 apiService.profile = (accessToken) => {
   // REMOVE-START
-  return fetch(`${BASE_URL}/me`, {
+  return fetch(`${BASE_URL}/profile`, {
     method: 'GET',
     credentials: 'include',
     mode: 'cors',

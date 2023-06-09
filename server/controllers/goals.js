@@ -20,7 +20,7 @@ const getGoals = async (req,res) => {
     console.log(req.body.categoryId)
     let goal= await model.addGoal(req.body, req.body.categoryId)
     res.status = 201;
-    //console.log(goal)ß
+    //console.log(goal)
     res.json(goal)
     }catch(error){
     res.status = 400;

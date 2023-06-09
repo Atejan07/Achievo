@@ -1,17 +1,14 @@
 import './App.css';
 import React from 'react'
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import { Routes, Route } from 'react-router-dom';
-// import Dashboard from './src/components/Dashboard'
-import Home from './components/Home'
 import Navbar from './components/Navbar';
-import Register from './components/Register'
-import Logout from './components/Logout'
-import Profile from './components/Profile'
 import { BrowserRouter as Router } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import 'antd/dist/reset.css';
 import "./index.css";
+import {userContext} from './context/userContext'
+import apiService from './services/ApiService';
 
 
 
@@ -19,13 +16,17 @@ import "./index.css";
 
 function App() {
 const [isAuthenticated, setIsAuthenticated] = useState(false);
-const [user,setUser] = useState(null);
+const {user, updateUser} = useContext(userContext)
 
 function checkToken () {
   const accessToken = localStorage.getItem('accessToken');
-  const user = null; //implement api service with back end route that return user only using accessToken -> sends request to backend router -> with auth middleware -> finds out what the user was 
+   //implement api service with back end route that return user only using accessToken -> sends request to backend router -> with auth middleware -> finds out what the user was 
   //refreshed and set as a user 
   if (accessToken) {
+    apiService.profile(accessToken).then(data =>{
+      console.log(data)
+      updateUser(data);
+    })
     setIsAuthenticated(true)
   }
 }
@@ -39,7 +40,7 @@ useEffect(() => {
     <Router>
     <Navbar isAuthenticated={isAuthenticated}></Navbar>
       {/* {user && <div style={{color: 'white'}}>Hello {user.userName}</div>} */}
-      <Dashboard setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user}></Dashboard>
+      <Dashboard setIsAuthenticated={setIsAuthenticated}></Dashboard>
     </Router>
     </div>
   );

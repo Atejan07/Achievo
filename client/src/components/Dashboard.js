@@ -4,8 +4,14 @@ import Register from '../components/Register'
 import Logout from '../components/Logout'
 import Home from '../components/Home'
 import Profile from '../components/Profile'
+import { useContext } from 'react';
+import {userContext} from '../context/userContext';
 
-export default function Dashboard({ setIsAuthenticated, setUser, user}) {
+
+
+
+export default function Dashboard({ setIsAuthenticated}) {
+const user = useContext(userContext)
   return (
     <section className="dashboard">
     <Routes>
@@ -18,7 +24,7 @@ export default function Dashboard({ setIsAuthenticated, setUser, user}) {
         path="/logout"
         element={<Logout setIsAuthenticated={setIsAuthenticated} />}
       />
-       <Route path="/" element={<Home setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user}/>} />
+       <Route path="/" element={<Home setIsAuthenticated={setIsAuthenticated}/>} />
     </Routes>
   </section>
   )
