@@ -10,7 +10,6 @@ export default function Category({item, setItem}) {
 
 
   const handleDelete = (e) => {
-    console.log(item)
     deleteCategory(item._id).then((item) => {
       setItem((items) => items.filter((el) => el._id !== item._id));
     });
