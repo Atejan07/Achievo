@@ -7,8 +7,7 @@ import CategoryList from './CategoryLIst';
 import apiService from '../services/ApiService'
 import { useNavigate } from 'react-router-dom';
 import {userContext} from '../context/userContext';
-
-
+import ProfileNavbar from './profileNavbar';
 
 
 export default function Profile({ setIsAuthenticated }) {
@@ -20,7 +19,7 @@ export default function Profile({ setIsAuthenticated }) {
 const [items, setItem] = useState([]);
 const [state, setState] = useState(initialState);
 const {user, updateUser} = useContext(userContext)
-console.log(user)
+// console.log(user)
 
 useEffect(() => {
 getCategories().then(data => {
@@ -29,7 +28,7 @@ setItem(data)
 }, [])
 
 
-  const userEmail= user.email;
+  // const userEmail= user.email;
 
   // useEffect(() => {
   //   const accessToken = localStorage.getItem('accessToken');
@@ -53,6 +52,7 @@ setItem(data)
 
   return (
     <div className='profile-page'>
+    <ProfileNavbar></ProfileNavbar>
     {user && <div style={{color: 'white'}}>hello {user.userName}</div>}
      <CategoryForm setItem={setItem}></CategoryForm>
      <CategoryList  items={items} setItem={setItem}></CategoryList>

@@ -29,7 +29,8 @@ export default function CategoryList({ items, setItem }) {
               open={isModalOpen}
               onOk={handleOk}
               onCancel={handleCancel}
-              bodyStyle={{ width: '100%', height: '500px'}}
+              bodyStyle={{height: '500px'}}
+              width={"1000px"}
             >
               <Goal></Goal>
             </Modal>
