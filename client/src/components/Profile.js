@@ -19,16 +19,13 @@ export default function Profile({ setIsAuthenticated }) {
 const [items, setItem] = useState([]);
 const [state, setState] = useState(initialState);
 const {user, updateUser} = useContext(userContext)
-// console.log(user)
+console.log(user)
 
 useEffect(() => {
-getCategories().then(data => {
-setItem(data)
-})
+setItem(user.categories)
 }, [])
 
-
-  // const userEmail= user.email;
+  const userEmail= user.email;
 
   // useEffect(() => {
   //   const accessToken = localStorage.getItem('accessToken');
