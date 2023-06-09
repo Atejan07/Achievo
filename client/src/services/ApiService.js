@@ -18,6 +18,7 @@ apiService.register = (user) => {
 };
 
 apiService.login = (user) => {
+  console.log(user)
   return fetch(`${BASE_URL}/login`, {
     method: 'POST',
     credentials: 'include',

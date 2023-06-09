@@ -50,7 +50,6 @@ setItem(data)
 
   return (
     <div className='profile-page'>
-     <Navbar></Navbar>
      <CategoryForm setItem={setItem}></CategoryForm>
      <CategoryList  items={items} setItem={setItem}></CategoryList>
     </div>

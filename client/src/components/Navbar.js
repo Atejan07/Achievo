@@ -22,7 +22,7 @@ const Navbar = ({ isAuthenticated }) => {
               <Link to="/register">Register</Link>
             </li>
             <li>
-              <Link to="/login">Login</Link>
+              <Link to="/">Login</Link>
             </li>
           </>
         )} 

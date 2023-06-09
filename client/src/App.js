@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { Routes, Route } from 'react-router-dom';
 // import Dashboard from './src/components/Dashboard'
 import Home from './components/Home'
@@ -14,8 +14,21 @@ import Dashboard from './components/Dashboard';
 
 
 
+
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+function checkToken () {
+  const accessToken = localStorage.getItem('accessToken');
+  if (accessToken) {
+    setIsAuthenticated(true)
+  }
+}
+useEffect(() => {
+  checkToken()
+}, [])
+
+
 
   return (
     <div className="App">

@@ -3,49 +3,45 @@ import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import apiService from "../services/ApiService";
 import logo from "../images/logo.png";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-  const initialState = {
-    email: '',
-    password: '',
+const initialState = {
+  email: "",
+  password: "",
+};
+
+export default function Home({ setIsAuthenticated }) {
+  let navigate = useNavigate();
+  const [state, setState] = useState(initialState);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
-  
-  export default function Home({ setIsAuthenticated }) {
 
-    let navigate = useNavigate();
-    const [state, setState] = useState(initialState);
-  
-    const handleChange = (e) => {
-      const { name, value } = e.target;
-      setState((prevState) => ({
-        ...prevState,
-        [name]: value,
-      }));
-    };
-  
-    const handleSubmit = async (e) => {
-      // Check the session branch to see how to handle redirects
-      // REMOVE-START
-      e.preventDefault();
-      const { email, password } = state;
-      const user = { email, password };
-      const res = await apiService.login(user);
-  
-      if (res.error) {
-        alert(`${res.message}`);
-        setState(initialState);
-      } else {
-        const { accessToken } = res;
-        localStorage.setItem('accessToken', accessToken);
-        setIsAuthenticated(true);
-        navigate('/profile');
-      }
-      // REMOVE-END
-    };
-  
-    const validateForm = () => {
-      return !state.email || !state.password;
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { email, password } = state;
+    const user = { email, password };
+    const res = await apiService.login(user);
+
+    if (res.error) {
+      alert(`${res.message}`);
+      setState(initialState);
+    } else {
+      const { accessToken } = res;
+      localStorage.setItem("accessToken", accessToken);
+      setIsAuthenticated(true);
+      navigate("/profile");
+    }
+  };
+
+  const validateForm = () => {
+    return !state.email || !state.password;
+  };
 
   return (
     <div className="login">
@@ -64,11 +60,13 @@ import { useNavigate } from 'react-router-dom';
               type="text"
               placeholder="name@email.com"
               value={state.email}
+              name="email"
               onChange={handleChange}
             ></input>
             <input
-              type="text"
+              type="password"
               placeholder="password"
+              name="password"
               value={state.password}
               onChange={handleChange}
             ></input>
