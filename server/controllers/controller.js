@@ -30,8 +30,8 @@ const create = async (req, res) => {
 const login = async (req, res) => {
   const { email, password } = req.body;
   try {
-    const user = await model.findOne({ email: email }).populate('categories');
-    console.log(user)
+    const user = await model.findOne({ email: email }).populate("categories");
+    console.log(user);
     // const safeUser = {
     //   userName: user.userName,
     //   email: user.email,

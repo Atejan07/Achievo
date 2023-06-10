@@ -1,13 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../images/nav-logo.png";
 
 const Navbar = ({ isAuthenticated }) => {
-
-console.log(isAuthenticated , "Authenticated")
+  console.log(isAuthenticated, "Authenticated");
 
   return (
-    <nav className='nav-register'>
+    <nav className="nav-register">
       {/* <img src={logo} className="nav-logo" /> */}
       <ul>
         {isAuthenticated ? (
@@ -28,7 +27,7 @@ console.log(isAuthenticated , "Authenticated")
               <Link to="/">Login</Link>
             </li>
           </>
-        )} 
+        )}
       </ul>
     </nav>
   );

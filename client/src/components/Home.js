@@ -4,16 +4,16 @@ import { useState } from "react";
 import apiService from "../services/ApiService";
 import logo from "../images/logo.png";
 import { useNavigate } from "react-router-dom";
-import { useContext } from 'react';
-import {userContext} from '../context/userContext';
+import { useContext } from "react";
+import { userContext } from "../context/userContext";
 
 const initialState = {
   email: "",
   password: "",
 };
 
-export default function Home({ setIsAuthenticated}) {
-  const { user, updateUser } = useContext(userContext)
+export default function Home({ setIsAuthenticated }) {
+  const { user, updateUser } = useContext(userContext);
   let navigate = useNavigate();
   const [state, setState] = useState(initialState);
 
@@ -29,15 +29,15 @@ export default function Home({ setIsAuthenticated}) {
     e.preventDefault();
     const res = await apiService.login(state);
     // res= { accessToken : string, user: {...}}
-    console.log(res)
+    console.log(res);
     if (res.error) {
       alert(`${res.message}`);
       setState(initialState);
     } else {
       const { accessToken } = res;
       localStorage.setItem("accessToken", accessToken);
-      const {user} = res;
-      updateUser(user)
+      const { user } = res;
+      updateUser(user);
       setIsAuthenticated(true);
       navigate("/profile");
     }

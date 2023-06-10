@@ -5,7 +5,6 @@ import { postCategory } from "../services/Categories";
 export default function CategoryForm({ setItem }) {
   const [title, setTitle] = useState("");
 
-  
   const submitItem = () => {
     const categoryTitle = title;
     if (!categoryTitle) return alert("Need to provide a Category");

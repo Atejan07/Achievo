@@ -2,16 +2,13 @@ import React from "react";
 import { useState } from "react";
 import { postGoal } from "../services/Goals";
 import { getGoals } from "../services/Goals";
-import { DatePicker } from 'antd';
+import { DatePicker } from "antd";
 const { MonthPicker } = DatePicker;
-
-
 
 export default function GoalForm({ setGoal }) {
   const [title, setTitle] = useState("");
-  const [description ,setDescription] = useState("");
+  const [description, setDescription] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
-
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -30,8 +27,7 @@ export default function GoalForm({ setGoal }) {
     const goal = {
       title: goalsTitle,
       description: goalsDescription,
-      deadline: selectDate
-
+      deadline: selectDate,
     };
     postGoal(goal).then((newGoal) => {
       // console.log(newItem);
@@ -48,7 +44,7 @@ export default function GoalForm({ setGoal }) {
         placeholder="Goal"
         className="goal-title"
       ></input>
-       <input
+      <input
         type="input"
         description={description}
         onChange={(e) => setDescription(e.target.value)}
@@ -59,10 +55,10 @@ export default function GoalForm({ setGoal }) {
         Add
       </button>
       <div>
-    <div>
-    <DatePicker value={selectedDate} onChange={handleDateChange} />
-     </div>
-    </div>
+        <div>
+          <DatePicker value={selectedDate} onChange={handleDateChange} />
+        </div>
+      </div>
     </div>
   );
 }

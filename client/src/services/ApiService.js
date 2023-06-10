@@ -1,16 +1,14 @@
-const BASE_URL = 'http://localhost:3001';
+const BASE_URL = "http://localhost:3001";
 
 const apiService = {};
-
-
 
 apiService.register = (user) => {
   console.log(user);
   return fetch(`${BASE_URL}/register`, {
-    method: 'POST',
-    credentials: 'include',
-    mode: 'cors',
-    headers: { 'Content-Type': 'application/json' },
+    method: "POST",
+    credentials: "include",
+    mode: "cors",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(user),
   })
     .then((res) => res.json())
@@ -20,25 +18,24 @@ apiService.register = (user) => {
 apiService.login = (user) => {
   // console.log(user)
   return fetch(`${BASE_URL}/login`, {
-    method: 'POST',
-    credentials: 'include',
-    mode: 'cors',
-    headers: { 'Content-Type': 'application/json' },
+    method: "POST",
+    credentials: "include",
+    mode: "cors",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(user),
   })
     .then((res) => res.json())
     .catch((err) => console.log(err));
-
 };
 
 apiService.profile = (accessToken) => {
   // REMOVE-START
   return fetch(`${BASE_URL}/profile`, {
-    method: 'GET',
-    credentials: 'include',
-    mode: 'cors',
+    method: "GET",
+    credentials: "include",
+    mode: "cors",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: `Bearer ${accessToken}`,
     },
   })

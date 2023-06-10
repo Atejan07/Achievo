@@ -21,7 +21,7 @@ export default function CategoryList({ items, setItem }) {
       {items.map((item) => {
         return (
           <div key={item._id}>
-            <button type="button" onClick={showModal} className='category'>
+            <button type="button" onClick={showModal} className="category">
               <Category item={item} setItem={setItem}></Category>
             </button>
             <Modal
@@ -29,7 +29,7 @@ export default function CategoryList({ items, setItem }) {
               open={isModalOpen}
               onOk={handleOk}
               onCancel={handleCancel}
-              bodyStyle={{height: '500px'}}
+              bodyStyle={{ height: "500px" }}
               width={"1000px"}
             >
               <Goal></Goal>

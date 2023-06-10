@@ -1,18 +1,15 @@
-import React from 'react'
-import {useState} from 'react'
-import apiService from '../services/ApiService'
-import { useNavigate } from 'react-router-dom';
-
-
+import React from "react";
+import { useState } from "react";
+import apiService from "../services/ApiService";
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
-  email: '',
-  password: '',
-  userName: '',
+  email: "",
+  password: "",
+  userName: "",
 };
 
-
-const Register = ({setIsAuthenticated}) => {
+const Register = ({ setIsAuthenticated }) => {
   let navigate = useNavigate();
   const [state, setState] = useState(initialState);
 
@@ -27,7 +24,7 @@ const Register = ({setIsAuthenticated}) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, password, userName } = state;
-    const user = { email, password , userName};
+    const user = { email, password, userName };
     const res = await apiService.register(user);
 
     if (res.error) {
@@ -35,17 +32,15 @@ const Register = ({setIsAuthenticated}) => {
       setState(initialState);
     } else {
       const { accessToken } = res;
-      localStorage.setItem('accessToken', accessToken);
+      localStorage.setItem("accessToken", accessToken);
       setIsAuthenticated(true);
-      navigate('/profile');
+      navigate("/profile");
     }
     // REMOVE-END
   };
 
   const validateForm = () => {
-    return (
-      !state.email || !state.password || !state.userName
-    );
+    return !state.email || !state.password || !state.userName;
   };
 
   return (

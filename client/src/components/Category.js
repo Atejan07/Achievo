@@ -1,13 +1,9 @@
-import React from 'react'
-import { deleteCategory } from '../services/Categories';
-import { useState } from 'react';
+import React from "react";
+import { deleteCategory } from "../services/Categories";
+import { useState } from "react";
 
-
-
-export default function Category({item, setItem}) {
+export default function Category({ item, setItem }) {
   // console.log(item);
-
-
 
   const handleDelete = (e) => {
     deleteCategory(item._id).then((item) => {
@@ -16,9 +12,9 @@ export default function Category({item, setItem}) {
   };
 
   return (
-    <div >
+    <div>
       <h1>{item.title}</h1>
       <button onClick={handleDelete}>X</button>
     </div>
-  )
+  );
 }

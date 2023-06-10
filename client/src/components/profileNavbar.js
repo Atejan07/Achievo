@@ -1,20 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../images/nav-logo.png";
-import '../App.css';
+import "../App.css";
 
-
-
-export default function ProfileNavbar ()  {
+export default function ProfileNavbar() {
   return (
-    <nav className='nav'>
+    <nav className="nav">
       <img src={logo} className="nav-logo" />
       <ul>
-       <li>
-        <p>VisionBoard</p>
-       </li>
+        <li>
+          <p>VisionBoard</p>
+        </li>
       </ul>
     </nav>
   );
-};
-
+}
