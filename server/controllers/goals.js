@@ -41,7 +41,7 @@ const deleteGoal = async (req, res) => {
 
 const getImportant = async (req, res) => {
   try {
-    const userId = req.body.userId;
+    const userId = req.params.id;
     console.log(userId)
     const result = await model.getImportantGoals(userId);
     res.status = 200;

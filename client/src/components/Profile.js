@@ -18,10 +18,12 @@ export default function Profile({ setIsAuthenticated }) {
   const [items, setItem] = useState([]);
   const [state, setState] = useState(initialState);
   const { user, updateUser } = useContext(userContext);
+
   // console.log(user);
   useEffect(() => {
     setItem(user.categories);
   }, [user]);
+
 
   return (
     <div className="profile-page">

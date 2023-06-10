@@ -31,13 +31,7 @@ export async function deleteGoal(id) {
 
 
 export async function getAllImportant(userId){
-const importantGoal = await fetch(URL + '/goals/important' , {
-method: 'GET',
-headers: {
-"Content-Type": "application/json",
-},
-body: JSON.stringify({userId}),
-})
+const importantGoal = await fetch(URL + '/goals/important/'+ userId)
 const result = await importantGoal.json();
 return result;
 }
