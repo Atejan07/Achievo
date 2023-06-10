@@ -8,6 +8,7 @@ import apiService from "../services/ApiService";
 import { useNavigate } from "react-router-dom";
 import { userContext } from "../context/userContext";
 import ProfileNavbar from "./profileNavbar";
+import Maingoals from "./maingoals";
 
 export default function Profile({ setIsAuthenticated }) {
   const initialState = {
@@ -19,9 +20,9 @@ export default function Profile({ setIsAuthenticated }) {
   const { user, updateUser } = useContext(userContext);
   // console.log(user);
   useEffect(() => {
-    console.log(user.categories, 'profile items')
+    // console.log(user.categories, 'profile items')
     setItem(user.categories);
-    console.log(items, 'PROFILE ITEMS AFTER SETITEM')
+    // console.log(items, 'PROFILE ITEMS AFTER SETITEM')
     // console.log(user.categories , "Users categories")
   }, [user]);
 
@@ -31,6 +32,7 @@ export default function Profile({ setIsAuthenticated }) {
       {user && <div style={{ color: "white" }}>hello {user.userName}</div>}
       <CategoryForm setItem={setItem} items={items}></CategoryForm>
       <CategoryList items={items} setItem={setItem}></CategoryList>
+      <Maingoals></Maingoals>
     </div>
   );
 }
