@@ -34,9 +34,9 @@ export default function GoalForm({ setGoal, categoryId }) {
       deadline: selectDate,
       important: important,
     };
-    console.log(goal, categoryId)
+    console.log(categoryId, 'in goal form')
     postGoal(goal, categoryId).then((newGoal) => {
-      console.log(newGoal)
+      // console.log(newGoal)
       setGoal((goals) => [...goals, newGoal]);
     });
   };

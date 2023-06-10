@@ -17,17 +17,19 @@ export default function Profile({ setIsAuthenticated }) {
   const [items, setItem] = useState([]);
   const [state, setState] = useState(initialState);
   const { user, updateUser } = useContext(userContext);
-  console.log(user);
-
+  // console.log(user);
   useEffect(() => {
+    console.log(user.categories, 'profile items')
     setItem(user.categories);
-  }, []);
+    console.log(items, 'PROFILE ITEMS AFTER SETITEM')
+    // console.log(user.categories , "Users categories")
+  }, [user]);
 
   return (
     <div className="profile-page">
       <ProfileNavbar></ProfileNavbar>
       {user && <div style={{ color: "white" }}>hello {user.userName}</div>}
-      <CategoryForm setItem={setItem}></CategoryForm>
+      <CategoryForm setItem={setItem} items={items}></CategoryForm>
       <CategoryList items={items} setItem={setItem}></CategoryList>
     </div>
   );

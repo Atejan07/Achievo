@@ -1,20 +1,24 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { postCategory } from "../services/Categories";
+import {userContext} from '../context/userContext'
 
 export default function CategoryForm({ setItem }) {
   const [title, setTitle] = useState("");
+  const {user} = useContext(userContext)
+
 
   const submitItem = () => {
     const categoryTitle = title;
+
     if (!categoryTitle) return alert("Need to provide a Category");
     setTitle("");
     const category = {
-      title: categoryTitle,
+      title: categoryTitle
     };
-    postCategory(category).then((newItem) => {
-      // console.log(newItem);
+    postCategory(category, user._id).then((newItem) => {
       setItem((items) => [...items, newItem]);
+      console.log(newItem, "newCategory")
     });
   };
   return (

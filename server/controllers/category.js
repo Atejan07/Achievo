@@ -15,9 +15,9 @@ const getCategories = async (req, res) => {
 const addCategory = async (req, res) => {
   try {
     console.log(req.body, "body");
-    let category = await model.addCategory(req.body.title, req.body.userId);
+    let category = await model.addCategory(req.body.item.title, req.body.userId);
     res.status = 201;
-    //console.log(category)
+    console.log(category , 'category')
     res.json(category);
   } catch (error) {
     res.status = 400;

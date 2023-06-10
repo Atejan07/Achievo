@@ -29,7 +29,7 @@ export default function Home({ setIsAuthenticated }) {
     e.preventDefault();
     const res = await apiService.login(state);
     // res= { accessToken : string, user: {...}}
-    console.log(res);
+    // console.log(res);
     if (res.error) {
       alert(`${res.message}`);
       setState(initialState);

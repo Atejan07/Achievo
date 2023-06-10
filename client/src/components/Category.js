@@ -3,7 +3,7 @@ import { deleteCategory } from "../services/Categories";
 import { useState } from "react";
 
 export default function Category({ item, setItem }) {
-  console.log(item, 'each item');
+  // console.log(item, 'each item');
 
   const handleDelete = (e) => {
     deleteCategory(item._id).then((item) => {
