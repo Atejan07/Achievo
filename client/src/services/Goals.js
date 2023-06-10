@@ -6,13 +6,15 @@ export async function getGoals() {
   return json;
 }
 
-export async function postGoal(item) {
+
+//TODO-> categoryId
+export async function postGoal(item, categoryId) {
   const res = await fetch(URL + "/goals", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(item),
+    body: JSON.stringify({item, categoryId}),
   });
   const title = await res.json();
   return title;

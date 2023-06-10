@@ -23,27 +23,6 @@ export default function Profile({ setIsAuthenticated }) {
     setItem(user.categories);
   }, []);
 
-  const userEmail = user.email;
-
-  // useEffect(() => {
-  //   const accessToken = localStorage.getItem('accessToken');
-  //   const getProfile = async (accessToken) => {
-  //     const userInfo = await apiService.profile(accessToken);
-  //     if (userInfo) {
-  //       const { firstName, lastName } = userInfo;
-  //       setState((prevState) => {
-  //         return {
-  //           ...prevState,
-  //           userName,
-  //         };
-  //       });
-  //     } else {
-  //       console.log('No user info found ');
-  //     }
-  //   };
-  //   getProfile(accessToken);
-  // }, []);
-
   return (
     <div className="profile-page">
       <ProfileNavbar></ProfileNavbar>

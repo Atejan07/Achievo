@@ -6,13 +6,13 @@ export async function getCategories() {
   return json;
 }
 
-export async function postCategory(item) {
+export async function postCategory(item, userId) {
   const res = await fetch(URL + "/categories", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+    "Content-Type": "application/json",
     },
-    body: JSON.stringify(item),
+    body: JSON.stringify({item, userId}),
   });
   const title = await res.json();
   return title;

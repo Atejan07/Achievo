@@ -15,6 +15,7 @@ export default function EachGoal({ goal, setGoal }) {
       <h1>{goal.title}</h1>
       <p>{goal.description}</p>
       <p>{goal.deadline}</p>
+      <h3>{goal.important ? "❤️" : ""}</h3>
       <button onClick={handleDelete}>X</button>
     </div>
   );

@@ -5,6 +5,8 @@ import Goal from "./Goal";
 import { Button, Modal } from "antd";
 
 export default function CategoryList({ items, setItem }) {
+
+  console.log(items, 'items')
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);

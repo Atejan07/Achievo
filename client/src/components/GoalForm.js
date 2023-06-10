@@ -9,6 +9,8 @@ export default function GoalForm({ setGoal }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
+  const [important, setImportant] = useState(false);
+
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -24,10 +26,13 @@ export default function GoalForm({ setGoal }) {
     const selectDate = selectedDate;
     if (!goalsTitle) return alert("Need to provide a Goal");
     setTitle("");
+    setImportant(false);
+    setDescription('');
     const goal = {
       title: goalsTitle,
       description: goalsDescription,
       deadline: selectDate,
+      important: important,
     };
     postGoal(goal).then((newGoal) => {
       // console.log(newItem);
@@ -51,6 +56,12 @@ export default function GoalForm({ setGoal }) {
         placeholder="Description"
         className="goal-description"
       ></input>
+        <input
+            className="important-input"
+            type="checkbox"
+            checked={important}
+            onChange={(e) => setImportant(e.target.checked)}
+          ></input>
       <button onClick={submitItem} className="goal-input">
         Add
       </button>

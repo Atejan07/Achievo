@@ -9,8 +9,8 @@ const categoriesSchema = new Schema({
 const Categories = model("Categories", categoriesSchema);
 
 const getCategories = async () => {
-  const res = await Categories.find({});
-  return res;
+  const result = await Categories.find({});
+  return result;
 };
 
 const addCategory = async (category, userId) => {

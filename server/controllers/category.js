@@ -3,7 +3,7 @@ const model = require("../models/categories");
 const getCategories = async (req, res) => {
   try {
     // console.log(req.body)
-    const result = await model.getCategories();
+    const result = await model.getCategories()
     res.status = 200;
     res.json(result);
   } catch (error) {
