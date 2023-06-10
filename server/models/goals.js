@@ -10,27 +10,32 @@ const goalsSchema = new Schema({
 
 const Goals = model("Goals", goalsSchema);
 
-const getGoals = async () => {
-  const res = await Goals.find({});
-  return res;
+const getGoals = async (catId) => {
+  const results = await Categories.findOne({_id: catId}).populate('goals')
+  console.log(results)
+  return results;
 };
 
 const addGoal = async (goal, categoryId) => {
-  console.log(goal);
+  console.log('POST GOAL', goal);
   const newGoal = new Goals({
-    title: goal.title,
-    description: goal.description,
-    deadline: goal.deadline,
-    important: goal.important,
+    title: goal.item.title,
+    description: goal.item.description,
+    deadline: goal.item.deadline,
+    important: goal.item.important,
   });
+  
   const res = await Goals.create(newGoal);
-  console.log(res._id);
+  console.log(res)
+    
+  
+  console.log('CREATED GOAL ID', res._id);
   const result = await Categories.findOneAndUpdate(
     { _id: categoryId },
     { $push: { goals: res._id } },
     { new: true }
   );
-  console.log(result);
+  console.log('SAVED GOAL ID TO CAT', result);
   return res;
 };
 

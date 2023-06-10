@@ -18,6 +18,7 @@ export default function CategoryList({ items, setItem }) {
     setIsModalOpen(false);
   };
 
+
   return (
     <div className="category-list">
       {items.map((item) => {
@@ -34,7 +35,7 @@ export default function CategoryList({ items, setItem }) {
               bodyStyle={{ height: "500px" }}
               width={"1000px"}
             >
-              <Goal></Goal>
+              <Goal categoryId={item._id}></Goal>
             </Modal>
           </div>
         );

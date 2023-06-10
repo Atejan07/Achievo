@@ -5,7 +5,7 @@ import { getGoals } from "../services/Goals";
 import { DatePicker } from "antd";
 const { MonthPicker } = DatePicker;
 
-export default function GoalForm({ setGoal }) {
+export default function GoalForm({ setGoal, categoryId }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
@@ -34,8 +34,9 @@ export default function GoalForm({ setGoal }) {
       deadline: selectDate,
       important: important,
     };
-    postGoal(goal).then((newGoal) => {
-      // console.log(newItem);
+    console.log(goal, categoryId)
+    postGoal(goal, categoryId).then((newGoal) => {
+      console.log(newGoal)
       setGoal((goals) => [...goals, newGoal]);
     });
   };

@@ -1,7 +1,7 @@
 const URL = "http://localhost:3001";
 
-export async function getGoals() {
-  const res = await fetch(URL + "/goals");
+export async function getGoals(categoryId) {
+  const res = await fetch(URL + "/goals/" + categoryId);
   const json = await res.json();
   return json;
 }
