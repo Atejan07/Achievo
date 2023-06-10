@@ -4,7 +4,6 @@ const getGoals = async (req, res) => {
   try {
     // console.log(req.body)
     const catId = req.params.id
-    console.log(catId)
     const result = await model.getGoals(catId);
     res.status = 200;
     res.json(result);
@@ -16,10 +15,10 @@ const getGoals = async (req, res) => {
 
 const addGoal = async (req, res) => {
   try {
-    console.log(req.body.categoryId);
+
     let goal = await model.addGoal(req.body, req.body.categoryId);
     res.status = 201;
-    //console.log(goal)
+
     res.json(goal);
   } catch (error) {
     res.status = 400;
@@ -39,4 +38,21 @@ const deleteGoal = async (req, res) => {
   }
 };
 
-module.exports = { getGoals, addGoal, deleteGoal };
+
+const getImportant = async (req, res) => {
+  try {
+    const userId = req.body.userId;
+    console.log(userId)
+    const result = await model.getImportantGoals(userId);
+    res.status = 200;
+    res.json(result);
+  } catch (error) {
+    res.status = 400;
+    console.log = { error: error.message };
+  }
+};
+
+
+
+
+module.exports = { getGoals, addGoal, deleteGoal, getImportant };

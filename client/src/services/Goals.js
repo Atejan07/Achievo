@@ -27,3 +27,17 @@ export async function deleteGoal(id) {
   const json = await res.json();
   return json;
 }
+
+
+
+export async function getAllImportant(userId){
+const importantGoal = await fetch(URL + '/goals/important' , {
+method: 'GET',
+headers: {
+"Content-Type": "application/json",
+},
+body: JSON.stringify({userId}),
+})
+const result = await importantGoal.json();
+return result;
+}

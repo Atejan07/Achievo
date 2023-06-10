@@ -12,8 +12,6 @@ export default function Goal({categoryId}) {
     getGoals(categoryId).then((data) => {
       // console.log(data)
       setGoal(data.goals);
-      //send category id with request and in back end -> fetch category by id and populate the goals
-      //or fetch goals by object id array that is in category object
     });
   }, []);
 

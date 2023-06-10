@@ -1,5 +1,6 @@
 const { Schema, model } = require("./index");
 const { Categories } = require("./categories");
+const  User  = require('./user')
 
 const goalsSchema = new Schema({
   title: { type: String, required: true },
@@ -12,24 +13,21 @@ const Goals = model("Goals", goalsSchema);
 
 const getGoals = async (catId) => {
   const results = await Categories.findOne({_id: catId}).populate('goals')
-  console.log(results)
+
   return results;
 };
 
 const addGoal = async (goal, categoryId) => {
-  console.log('POST GOAL', goal);
+
   const newGoal = new Goals({
     title: goal.item.title,
     description: goal.item.description,
     deadline: goal.item.deadline,
     important: goal.item.important,
   });
-  
+
   const res = await Goals.create(newGoal);
-  console.log(res)
-    
-  
-  console.log('CREATED GOAL ID', res._id);
+
   const result = await Categories.findOneAndUpdate(
     { _id: categoryId },
     { $push: { goals: res._id } },
@@ -44,4 +42,27 @@ const deleteGoal = async (id) => {
   return deletedTopic;
 };
 
-module.exports = { Goals, getGoals, addGoal, deleteGoal };
+
+const getImportantGoals = async (id) => {
+  try {
+    const user = await User.findOne({ _id: id }).populate({
+      path: 'categories',
+      populate: { path: 'goals', match: { important: true } },
+    });
+
+    const importantGoals = user.categories.reduce((goals, cat) => {
+      return goals.concat(cat.goals);
+    }, []);
+
+    console.log(importantGoals);
+    return importantGoals;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+
+
+
+module.exports = { Goals, getGoals, addGoal, deleteGoal , getImportantGoals};

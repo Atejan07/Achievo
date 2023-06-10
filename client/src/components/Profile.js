@@ -20,10 +20,7 @@ export default function Profile({ setIsAuthenticated }) {
   const { user, updateUser } = useContext(userContext);
   // console.log(user);
   useEffect(() => {
-    // console.log(user.categories, 'profile items')
     setItem(user.categories);
-    // console.log(items, 'PROFILE ITEMS AFTER SETITEM')
-    // console.log(user.categories , "Users categories")
   }, [user]);
 
   return (
