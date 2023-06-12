@@ -46,6 +46,7 @@ li {
   color: #fff;
   text-align: center;
 }
+
 .login-box h2 {
   margin: 0 0 30px;
   padding: 0;
@@ -280,6 +281,7 @@ lottie-player {
   font-family: inherit;
   width: 100%;
   border: 0;
+  position:relative;
   border-bottom: 2px solid gray;
   outline: 0;
   font-size: 1.3rem;
@@ -343,23 +345,49 @@ lottie-player {
 }
 
 
-.button-input {
-  /* position: absolute; */
-  margin-left: 240px;
-  margin-top: 5px;
+.mainGoals {
+  width: 400px;
+  height: 600px;
+  background-color: #fff;
+}
+
+.mainGoals p {
+  color: aqua;
+}
+
+
+
+/* CSS */
+.button-1 {
+  background-color: #000000;
+  border-radius: 8px;
   border-style: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Bebas Neue', sans-serif;  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: absolute;
+  left: 260px;
+  top: 106px;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
-
-.mainGoals{
-width: 400px;
-height: 600px;
-background-color: #fff;
-}
-
-.mainGoals p{
-color:aqua;
+.button-1:hover,
+.button-1:focus {
+  background-color: #dc20e6;
 }

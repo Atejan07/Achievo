@@ -36,7 +36,7 @@ export default function CategoryForm({ setItem }) {
           Category
         </label>
       </div>
-      <button onClick={submitItem} className="button-input">
+      <button onClick={submitItem} className="button-1">
         Add
       </button>
     </div>

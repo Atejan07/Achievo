@@ -29,7 +29,7 @@ export default function Profile({ setIsAuthenticated }) {
   return (
     <div className="profile-page">
       {/* <ProfileNavbar></ProfileNavbar> */}
-      {user && <div style={{ color: "white" }}>hello {user.userName}</div>}
+      {/* {user && <h3 style={{ color: "white" }}>Hello {user.userName}</h3>} */}
       <CategoryForm setItem={setItem} items={items}></CategoryForm>
       <CategoryList items={items} setItem={setItem}></CategoryList>
       <Maingoals></Maingoals>
