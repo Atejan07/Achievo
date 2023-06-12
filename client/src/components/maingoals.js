@@ -16,12 +16,27 @@ setImportantGoals(data)
 })
 }, [user])
 
+function calculateDaysLeft(deadline) {
+  const current = new Date();
+  const targetDate = new Date(deadline);
+  const differenceMs = targetDate - current;
+  const daysLeft = Math.ceil(differenceMs / (1000 * 60 * 60 * 24));
+  if (daysLeft < 0) {
+    return "Should be accomplished";
+  }
+  return daysLeft;
+}
+
+
+
+
   return (
     <div className='mainGoals'>
       {importantGoals.map((goal)=>{
         return(
         <div>
-      <p>{goal.title}</p>
+      <h1>{goal.title}</h1>
+      <p> Deadline: {calculateDaysLeft(goal.deadline)} days left</p>
       </div>
       )
       })}

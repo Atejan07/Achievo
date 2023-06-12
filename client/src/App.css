@@ -349,15 +349,28 @@ lottie-player {
   width: 400px;
   height: 600px;
   background-color: #fff;
+  border-radius: 5px;
+  margin-top: 40px;
+}
+
+.mainGoals h1 {
+margin-top: 10px;
+font-family: "Montserrat", sans-serif;
+font-size: 45px;
+font-weight: 500;
+margin-left: 15px;
 }
 
 .mainGoals p {
-  color: aqua;
+margin-top: 10px;
+font-family: "Montserrat", sans-serif;
+font-weight: 500;
+margin-left: 15px;
 }
 
 
 
-/* CSS */
+
 .button-1 {
   background-color: #000000;
   border-radius: 8px;
@@ -366,7 +379,8 @@ lottie-player {
   color: #FFFFFF;
   cursor: pointer;
   display: inline-block;
-  font-family: 'Bebas Neue', sans-serif;  font-size: 14px;
+  font-family: 'Bebas Neue', sans-serif;  
+  font-size: 14px;
   letter-spacing: 2px;
   font-weight: 500;
   height: 40px;
