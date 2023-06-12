@@ -50,7 +50,7 @@ export default function EachGoal({ goal, setGoal }) {
       <input
         className="important-input"
         type="checkbox"
-        checked={completed}
+        checked={goal.completed}
         onChange={handleCheckboxChange}
       />
       <button onClick={handleDelete}>X</button>
