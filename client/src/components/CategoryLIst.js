@@ -38,11 +38,11 @@ export default function CategoryList({ items, setItem }) {
               visible={isModalOpen}
               onOk={() => handleOk(itemId)}
               onCancel={() => handleCancel(itemId)}
-              bodyStyle={{ height: "500px"}}
               width={"1000px"}
-              
             >
-              <Goal categoryId={itemId} />
+              <div style={{ maxHeight: "500px", overflow: "auto" }}>
+                <Goal categoryId={itemId} />
+              </div>
             </Modal>
           </div>
         );
