@@ -7,30 +7,33 @@
 }
 
 body {
-  background: #272727;
   font-family: "Montserrat", sans-serif;
 }
-
 
 .logo-home {
     margin-top: 10px;
     width: 150px;
-    position: absolute
+    position: absolute;
+    top: 2%;
+    left: 7%;
+    transform: translateX(-50%);
+    z-index: 999;
   }
-    
-
-
-nav{
-  overflow: hidden;
-  position: fixed; 
-  top: 3%;
-  left: 2%;
-  width: 100%; 
-  display: flex;
-  flex-direction: row;
-}
+  
+  nav {
+    overflow: hidden;
+    position: fixed;
+    top: 2%;
+    left: 2%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    z-index: 99;
+    margin-top: 60px;
+  }
 
 nav a {
+  padding-top: 50px;
   color: #f6f4e6;
   text-decoration: none;
   display: block;
