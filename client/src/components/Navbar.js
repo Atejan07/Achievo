@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
+import { CSSTransition } from "react-transition-group";
 import "../Navbar.css"
 
 
 const Navbar = ({ isAuthenticated }) => {
   console.log(isAuthenticated, "Authenticated");
 
+  
   return (
     <div>
     <img src={logo} className="logo-home" />

@@ -7,12 +7,12 @@
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+font-family: "Montserrat", sans-serif;
 }
 
 .logo-home {
     margin-top: 10px;
-    width: 150px;
+    width: 180px;
     position: absolute;
     top: 2%;
     left: 7%;
@@ -30,6 +30,7 @@ body {
     flex-direction: row;
     z-index: 99;
     margin-top: 60px;
+
   }
 
 nav a {
@@ -93,3 +94,4 @@ nav a:nth-child(4):hover ~ .dot {
   transition: all 0.2s ease-in-out;
   opacity: 1;
 }
+
