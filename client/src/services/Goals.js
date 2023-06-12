@@ -53,7 +53,7 @@ export async function updateCompleted(goal) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({goal}),
+    body: JSON.stringify(goal),
   });
   const updatedGoal = await res.json();
   return updatedGoal;

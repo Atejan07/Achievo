@@ -57,7 +57,7 @@ const getImportant = async (req, res) => {
 const updateCompleted = async (req, res) =>{
 try{
 const goal = req.body;
-console.log(goal, 'completed')
+// console.log(goal, 'completed nowww')
 const result = await model.updateCompleted(goal);
 res.status = 200;
 res.json(result)

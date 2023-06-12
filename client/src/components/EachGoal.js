@@ -1,6 +1,7 @@
 import React, { useState , useContext } from "react";
 import { deleteGoal, postGoal } from "../services/Goals";
 import {userContext} from '../context/userContext'
+import { updateCompleted } from "../services/Goals";
 
 
 export default function EachGoal({ goal, setGoal }) {
@@ -33,9 +34,9 @@ export default function EachGoal({ goal, setGoal }) {
       ...goal,
       completed: !completed,
     };
-    postGoal(updatedGoal).then((newGoal)=>{
+    updateCompleted(goal).then((newGoal)=>{
     setGoal((goals) =>
-      goals.map((g) => (g._id === goal._id ? updatedGoal : g), [...goals, newGoal])
+      goals.map((g) => (g._id === goal._id ? updatedGoal : g) )
     );
   })
   };

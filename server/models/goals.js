@@ -65,10 +65,10 @@ const getImportantGoals = async (id) => {
 
 const updateCompleted = async (importantGoal) => {
   try {
-    const filter = { _id: importantGoal._id };
-    const update = { completed: !importantGoal.completed };
-    const goal = await Goals.findOneAndUpdate(filter, update);
-    //, { new: true }
+    console.log(importantGoal, 'this is important')
+    const update = { completed: !importantGoal.completed};
+    // console.log(update, 'update here')
+    const goal = await Goals.findByIdAndUpdate( importantGoal._id , update ,{new: true});
     // console.log(goal, 'hereee')
     return goal;
   } catch (error) {
