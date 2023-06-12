@@ -7,5 +7,6 @@ router.get("/goals/important/:id" , controller.getImportant);
 router.get("/goals/:id", controller.getGoals);
 router.post("/goals", controller.addGoal);
 router.delete("/goals/:id", controller.deleteGoal);
+router.put('/goals/completed/:id' , controller.updateCompleted)
 
 module.exports = router;

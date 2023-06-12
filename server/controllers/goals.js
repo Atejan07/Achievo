@@ -54,5 +54,20 @@ const getImportant = async (req, res) => {
 
 
 
+const updateCompleted = async (req, res) =>{
+try{
+const userId = req.params.id;
+console.log(userId, 'important id')
+const result = await model.updateCompleted(userId);
+res.status = 200;
+res.json(result)
+}catch(error){
+res.status = 400;
+console.log = { error: error.message };
+}
+}
 
-module.exports = { getGoals, addGoal, deleteGoal, getImportant };
+
+
+
+module.exports = { getGoals, addGoal, deleteGoal, getImportant, updateCompleted };

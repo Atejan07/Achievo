@@ -6,7 +6,6 @@ export async function getGoals(categoryId) {
   return json;
 }
 
-
 //TODO-> categoryId
 export async function postGoal(item, categoryId) {
   const res = await fetch(URL + "/goals", {
@@ -14,7 +13,7 @@ export async function postGoal(item, categoryId) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({item, categoryId}),
+    body: JSON.stringify({ item, categoryId }),
   });
   const title = await res.json();
   return title;
@@ -28,10 +27,20 @@ export async function deleteGoal(id) {
   return json;
 }
 
+export async function getAllImportant(userId) {
+  const importantGoal = await fetch(URL + "/goals/important/" + userId);
+  const result = await importantGoal.json();
+  return result;
+}
 
-
-export async function getAllImportant(userId){
-const importantGoal = await fetch(URL + '/goals/important/'+ userId)
-const result = await importantGoal.json();
-return result;
+export async function updateCompleted(userId, completed) {
+  const res = await fetch(URL + "/goals/completed/" + userId, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ completed }),
+  });
+  const updatedGoal = await res.json();
+  return updatedGoal;
 }

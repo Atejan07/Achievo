@@ -1,6 +1,7 @@
 const { Schema, model } = require("mongoose");
 const { Categories } = require("./categories");
 const User = require("./user");
+const { updateImportant } = require("../controllers/goals");
 
 const goalsSchema = new Schema({
   title: { type: String, required: true },
@@ -60,5 +61,27 @@ const getImportantGoals = async (id) => {
     throw error;
   }
 };
+
+
+const updateCompleted = async (id) => {
+  try {
+    const user = await User.findOne({ _id: id }).populate({
+      path: "categories",
+      populate: { path: "goals" },
+    });
+
+    const completedGoals = user.categories.reduce((goals, cat) => {
+      return goals.concat(cat.goals.filter((goal) => goal.completed));
+    }, []);
+
+    console.log(completedGoals);
+    return completedGoals;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+
 
 module.exports = { Goals, getGoals, addGoal, deleteGoal, getImportantGoals };
