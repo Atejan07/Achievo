@@ -82,7 +82,11 @@ const Register = ({ setIsAuthenticated }) => {
         </form>
       </div>
       <div className="right-side-home">
-        
+      <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_i7dxj8qw.json" 
+       background="transparent" 
+        speed="1" 
+        loop
+        autoplay></lottie-player>
       </div>
     </div>
   );
