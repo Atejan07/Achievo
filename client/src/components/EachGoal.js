@@ -14,6 +14,9 @@ export default function EachGoal({ goal, setGoal }) {
     const targetDate = new Date(deadline);
     const differenceMs = targetDate - current;
     const daysLeft = Math.ceil(differenceMs / (1000 * 60 * 60 * 24));
+    if (daysLeft < 0) {
+      return "Should be accomplished";
+    }
     return daysLeft;
   }
 
@@ -21,8 +24,8 @@ export default function EachGoal({ goal, setGoal }) {
     <div className="each-goal">
       <h1>{goal.title}</h1>
       <p>{goal.description}</p>
-      <p>{calculateDaysLeft(goal.deadline)}</p>
-      <h3>Days left to reach the Goal:{goal.important ? "❤️" : ""}</h3>
+      <p>Days left to reach the Goal: {calculateDaysLeft(goal.deadline)}</p>
+      <h3>{goal.important ? "❤️" : ""}</h3>
       <button onClick={handleDelete}>X</button>
     </div>
   );
