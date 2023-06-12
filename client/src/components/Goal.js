@@ -15,9 +15,17 @@ export default function Goal({categoryId}) {
       // console.log(data)
       setGoal(data.goals);
     });
-  }, []);
+  }, [categoryId]);
 
 
+
+const calculateCompletionPercentage = () => {
+  if (goals.length === 0) {
+    return 0; 
+  }
+  const completedGoals = goals.filter((goal) => goal.completed);
+  return (completedGoals.length / goals.length) * 100;
+};
 
 
 
@@ -27,7 +35,7 @@ export default function Goal({categoryId}) {
       <GoalList goals={goals} setGoal={setGoal}></GoalList>
       <Progress
         type="circle"
-        percent={100}
+        percent={calculateCompletionPercentage()}
         strokeColor={{
           '0%': '#dc20e6',
           '100%': '#8800ff',
