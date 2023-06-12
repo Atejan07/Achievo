@@ -7,12 +7,10 @@ import { Progress, Space } from 'antd';
 
 
 export default function Goal({categoryId}) {
-  const [goals, setGoal] = useState([]);
-  // console.log(goals, categoryId, 'INSIDE EACH GOAL')
+  const [goals, setGoal] = useState([])
 
   useEffect(() => {
     getGoals(categoryId).then((data) => {
-      // console.log(data)
       setGoal(data.goals);
     });
   }, [categoryId]);
@@ -24,7 +22,8 @@ const calculateCompletionPercentage = () => {
     return 0; 
   }
   const completedGoals = goals.filter((goal) => goal.completed);
-  return (completedGoals.length / goals.length) * 100;
+  const completionPercentage = (completedGoals.length / goals.length) * 100;
+  return Math.floor(completionPercentage);
 };
 
 
