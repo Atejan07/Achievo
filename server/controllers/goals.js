@@ -56,9 +56,9 @@ const getImportant = async (req, res) => {
 
 const updateCompleted = async (req, res) =>{
 try{
-const userId = req.params.id;
-console.log(userId, 'important id')
-const result = await model.updateCompleted(userId);
+const goal = req.body;
+console.log(goal, 'completed')
+const result = await model.updateCompleted(goal);
 res.status = 200;
 res.json(result)
 }catch(error){

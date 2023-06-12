@@ -33,10 +33,9 @@ const addGoal = async (goal, categoryId) => {
     { $push: { goals: res._id } },
     { new: true }
   );
-  console.log("SAVED GOAL ID TO CAT", result);
+  // console.log("SAVED GOAL ID TO CAT", result);
   return res;
 };
-
 
 const deleteGoal = async (id) => {
   const deletedGoal = await Goals.findOneAndDelete({ _id: id });
@@ -63,19 +62,15 @@ const getImportantGoals = async (id) => {
 };
 
 
-const updateCompleted = async (id) => {
+
+const updateCompleted = async (importantGoal) => {
   try {
-    const user = await User.findOne({ _id: id }).populate({
-      path: "categories",
-      populate: { path: "goals" },
-    });
-
-    const completedGoals = user.categories.reduce((goals, cat) => {
-      return goals.concat(cat.goals.filter((goal) => goal.completed));
-    }, []);
-
-    console.log(completedGoals);
-    return completedGoals;
+    const filter = { _id: importantGoal._id };
+    const update = { completed: !importantGoal.completed };
+    const goal = await Goals.findOneAndUpdate(filter, update);
+    //, { new: true }
+    // console.log(goal, 'hereee')
+    return goal;
   } catch (error) {
     console.error(error);
     throw error;
@@ -84,4 +79,11 @@ const updateCompleted = async (id) => {
 
 
 
-module.exports = { Goals, getGoals, addGoal, deleteGoal, getImportantGoals };
+module.exports = {
+  Goals,
+  getGoals,
+  addGoal,
+  deleteGoal,
+  getImportantGoals,
+  updateCompleted,
+};

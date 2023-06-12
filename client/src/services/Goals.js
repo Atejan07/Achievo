@@ -33,13 +33,27 @@ export async function getAllImportant(userId) {
   return result;
 }
 
-export async function updateCompleted(userId, completed) {
-  const res = await fetch(URL + "/goals/completed/" + userId, {
+
+
+// export async function updateCompleted(goal) {
+//   const res = await fetch(URL + "/completed/" + goal._id, {
+//     method: "PUT",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({ completed: !goal.completed }),
+//   });
+//   const updatedGoal = await res.json();
+//   return updatedGoal;
+// }
+
+export async function updateCompleted(goal) {
+  const res = await fetch(URL + "/completed", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ completed }),
+    body: JSON.stringify({goal}),
   });
   const updatedGoal = await res.json();
   return updatedGoal;
