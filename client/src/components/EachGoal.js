@@ -1,20 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { deleteGoal } from "../services/Goals";
-import { useState } from "react";
-
 
 export default function EachGoal({ goal, setGoal }) {
+  const [completed, setCompleted] = useState(false);
 
-const [completed, setCompleted] = useState(false);
-
-
-  const handleDelete = (e) => {
-    // console.log(goal,'here')
-    deleteGoal(goal._id).then((goal) => {
-      // console.log(goal, 'here')
+  const handleDelete = () => {
+    deleteGoal(goal._id).then(() => {
       setGoal((goals) => goals.filter((el) => el._id !== goal._id));
     });
   };
+
   function calculateDaysLeft(deadline) {
     const current = new Date();
     const targetDate = new Date(deadline);
@@ -26,16 +21,16 @@ const [completed, setCompleted] = useState(false);
     return daysLeft;
   }
 
-  const submitItem = () => {
-  const completed = completed;
-  setCompleted(false)
-  const goal = {
-    completed: completed,
+  const handleCheckboxChange = () => {
+    setCompleted(!completed);
+    const updatedGoal = {
+      ...goal,
+      completed: !completed,
+    };
+    setGoal((goals) =>
+      goals.map((g) => (g._id === goal._id ? updatedGoal : g))
+    );
   };
-  
-  }
-
-
 
   return (
     <div className="each-goal">
@@ -44,11 +39,11 @@ const [completed, setCompleted] = useState(false);
       <p>Days left to reach the Goal: {calculateDaysLeft(goal.deadline)}</p>
       <h3>{goal.important ? "❤️" : ""}</h3>
       <input
-            className="important-input"
-            type="checkbox"
-            checked={completed}
-            onChange={(e) => setCompleted(e.target.checked)}
-          ></input>
+        className="important-input"
+        type="checkbox"
+        checked={completed}
+        onChange={handleCheckboxChange}
+      />
       <button onClick={handleDelete}>X</button>
     </div>
   );
