@@ -7,6 +7,8 @@ const goalsSchema = new Schema({
   description: String,
   deadline: Date,
   important: Boolean,
+  completed: { type: Boolean, default: false },
+
 });
 
 const Goals = model("Goals", goalsSchema);
@@ -24,6 +26,7 @@ const addGoal = async (goal, categoryId) => {
     description: goal.item.description,
     deadline: goal.item.deadline,
     important: goal.item.important,
+    completed: false,
   });
 
   const res = await Goals.create(newGoal);
