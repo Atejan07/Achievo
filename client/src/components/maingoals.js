@@ -29,14 +29,13 @@ function calculateDaysLeft(deadline) {
 
 
 
-
   return (
     <div className='mainGoals'>
       {importantGoals.map((goal)=>{
         return(
         <div>
       <h1>{goal.title}</h1>
-      <p> Deadline: {calculateDaysLeft(goal.deadline)} days left</p>
+      <p>Deadline: {calculateDaysLeft(goal.deadline)} days left</p>
       </div>
       )
       })}

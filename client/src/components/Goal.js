@@ -29,10 +29,11 @@ const calculateCompletionPercentage = () => {
 
 
   return (
-    <div>
+    <div className="goal-wrapper">
       <GoalForm setGoal={setGoal} categoryId={categoryId}></GoalForm>
       <GoalList goals={goals} setGoal={setGoal}></GoalList>
       <Progress
+        className="progress-circle"
         type="circle"
         percent={calculateCompletionPercentage()}
         strokeColor={{

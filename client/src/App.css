@@ -405,3 +405,15 @@ margin-left: 15px;
 .button-1:focus {
   background-color: #dc20e6;
 }
+
+
+.goal-wrapper {
+  position: relative;
+}
+
+.progress-circle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 30px;
+}
