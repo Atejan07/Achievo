@@ -16,9 +16,6 @@
     "url": "https://github.com/Atejan07/Achievo/issues"
   },
   "homepage": "https://github.com/Atejan07/Achievo#readme",
-  "dependencies": {
-    "bcrypt": "^5.1.0"
-  },
   "devDependencies": {
     "eslint": "^8.42.0",
     "eslint-plugin-react": "^7.32.2"

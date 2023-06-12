@@ -9,22 +9,20 @@ export default function EachGoal({ goal, setGoal }) {
       setGoal((goals) => goals.filter((el) => el._id !== goal._id));
     });
   };
-
-  // function calculateDaysLeft(currentDate) {
-  //   const current = new Date(currentDate);
-  //   const targetDate = goal.deadline;
-  //   const differenceMs = targetDate - current;
-  //   const daysLeft = Math.floor(differenceMs / (1000 * 60 * 60 * 24));
-  //   return daysLeft;
-  // }
-
+  function calculateDaysLeft(deadline) {
+    const current = new Date();
+    const targetDate = new Date(deadline);
+    const differenceMs = targetDate - current;
+    const daysLeft = Math.ceil(differenceMs / (1000 * 60 * 60 * 24));
+    return daysLeft;
+  }
 
   return (
-    <div>
+    <div className="each-goal">
       <h1>{goal.title}</h1>
       <p>{goal.description}</p>
-      <p>{goal.deadline}</p>
-      <h3>{goal.important ? "❤️" : ""}</h3>
+      <p>{calculateDaysLeft(goal.deadline)}</p>
+      <h3>Days left to reach the Goal:{goal.important ? "❤️" : ""}</h3>
       <button onClick={handleDelete}>X</button>
     </div>
   );
