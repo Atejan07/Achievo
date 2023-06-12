@@ -29,7 +29,6 @@ apiService.login = (user) => {
 };
 
 apiService.profile = (accessToken) => {
-  // REMOVE-START
   return fetch(`${BASE_URL}/profile`, {
     method: "GET",
     credentials: "include",
@@ -41,26 +40,10 @@ apiService.profile = (accessToken) => {
   })
     .then((res) => res.json())
     .catch((err) => console.log(err));
-  // REMOVE-END
 };
 
 apiService.logout = (tokenName) => {
-  // REMOVE-START
-  // delete token from local storage here
   localStorage.removeItem(tokenName);
-  // the following request should invalidate the token
-  // return fetch(`${BASE_URL}/logout`, {
-  //   method: 'POST',
-  //   credentials: 'include',
-  //   mode: 'cors',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //     Authorization: `Bearer ${tokenName}`,
-  //   },
-  // })
-  //   .then((res) => res.json())
-  //   .catch((err) => console.log(err));
-  // REMOVE-END
 };
 
 export default apiService;

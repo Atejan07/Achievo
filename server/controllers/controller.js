@@ -48,22 +48,15 @@ const login = async (req, res) => {
 };
 
 const profile = async (req, res) => {
-  // REMOVE-START
   try {
-    const { _id, userName } = req.user;
-    const user = { _id, userName };
+    const user = req.user;
     res.status(200).send(user);
   } catch (error) {
     res.status(404).send({ error, message: "Resource not found" });
   }
-  // REMOVE-END
 };
 
 const logout = (req, res) => {
-  // REMOVE-START
-  // delete the token client side upon logout.
-  // you would invalidate the token here.
-  // REMOVE-END
 };
 
 module.exports = { create, login, profile, logout };

@@ -21,7 +21,7 @@ export default function Profile({ setIsAuthenticated }) {
 
   // console.log(user);
   useEffect(() => {
-    setItem(user.categories);
+   if (user) setItem(user.categories);
   }, [user]);
 
 

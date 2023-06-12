@@ -16,8 +16,8 @@ export default function CategoryForm({ setItem }) {
     const category = {
       title: categoryTitle
     };
-    postCategory(category, user._id).then((newItem) => {
-      setItem((items) => [...items, newItem]);
+      if (user)  postCategory(category, user._id).then((newItem) => {
+      if (user)  setItem ((items) => [...items, newItem]);
       console.log(newItem, "newCategory")
     });
   };

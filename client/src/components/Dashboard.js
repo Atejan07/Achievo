@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { userContext } from "../context/userContext";
 
 export default function Dashboard({ setIsAuthenticated }) {
-  const user = useContext(userContext);
+  const user =useContext(userContext);
   return (
     <section className="dashboard">
       <Routes>

@@ -36,7 +36,6 @@ const Register = ({ setIsAuthenticated }) => {
       setIsAuthenticated(true);
       navigate("/profile");
     }
-    // REMOVE-END
   };
 
   const validateForm = () => {

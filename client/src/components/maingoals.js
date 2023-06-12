@@ -13,8 +13,7 @@ const [importantGoals, setImportantGoals] = useState([]);
 
 useEffect(()=> {
 console.log(user)
-getAllImportant(user._id).then((data) => {
-// console.log(data[0], 'mainhoe')
+if (user) getAllImportant(user._id).then((data) => {
 setImportantGoals(data)
 })
 }, [])
@@ -25,7 +24,6 @@ setImportantGoals(data)
         return(
         <div>
       <p>{goal.title}</p>
-      <p>{goal.description}</p>
       </div>
       )
       })}
