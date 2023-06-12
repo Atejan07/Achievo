@@ -1,12 +1,18 @@
-import React, { useState } from "react";
-import { deleteGoal } from "../services/Goals";
+import React, { useState , useContext } from "react";
+import { deleteGoal, postGoal } from "../services/Goals";
+import {userContext} from '../context/userContext'
+
 
 export default function EachGoal({ goal, setGoal }) {
+
   const [completed, setCompleted] = useState(false);
+  const {user} = useContext(userContext)
+
+
 
   const handleDelete = () => {
     deleteGoal(goal._id).then(() => {
-      setGoal((goals) => goals.filter((el) => el._id !== goal._id));
+    setGoal((goals) => goals.filter((el) => el._id !== goal._id));
     });
   };
 
@@ -27,9 +33,11 @@ export default function EachGoal({ goal, setGoal }) {
       ...goal,
       completed: !completed,
     };
+    postGoal(updatedGoal).then((newGoal)=>{
     setGoal((goals) =>
-      goals.map((g) => (g._id === goal._id ? updatedGoal : g))
+      goals.map((g) => (g._id === goal._id ? updatedGoal : g), [...goals, newGoal])
     );
+  })
   };
 
   return (
