@@ -1,6 +1,6 @@
 body {
   background-color: rgba(0, 0, 0, 0.84);
-  margin: 0px;
+  /* margin: 0px; */
 }
 
 li {
@@ -9,32 +9,20 @@ li {
 
 
 
-.nav-register {
-  background-color: aqua;
-}
-
-
 .right-side-home {
   background-repeat: no-repeat;
   background-position: top;
   background-size: 100% auto;
   margin: 0;
   padding: 0;
-  width: 550px;
-  height: 100vh;
+  width: 540px;
+  height: 690px;
   position: relative;
-  left: 900px;
-  top: 0;
+  left: 930px;
   /* position: absolute; */
   background-image: linear-gradient(to bottom right, #8800ff, #dc20e6);
 }
 
-
-.logo-home {
-  margin-top: 10px;
-  width: 300px;
-  position: absolute;
-}
 
 
 .login-box {
@@ -369,5 +357,6 @@ color:aqua;
 }
 
 
-
-
+.login{
+max-height: 100vh;
+}

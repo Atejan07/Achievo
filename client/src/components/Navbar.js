@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../images/nav-logo.png";
+import logo from "../images/logo.png";
+import "../Navbar.css"
+
 
 const Navbar = ({ isAuthenticated }) => {
   console.log(isAuthenticated, "Authenticated");
 
   return (
     <nav className="nav-register">
-      {/* <img src={logo} className="nav-logo" /> */}
+   <img src={logo} className="logo-home" />
       <ul>
         {isAuthenticated ? (
           <>
@@ -29,6 +31,7 @@ const Navbar = ({ isAuthenticated }) => {
           </>
         )}
       </ul>
+      <div class="dot"></div>
     </nav>
   );
 };

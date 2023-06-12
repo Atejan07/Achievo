@@ -49,7 +49,7 @@ export default function Home({ setIsAuthenticated }) {
 
   return (
     <div className="login">
-      <img src={logo} className="logo-home" />
+      {/* <img src={logo} className="logo-home" /> */}
       <div className="position-login">
         <div className="login-box">
           <h1>Log In</h1>
