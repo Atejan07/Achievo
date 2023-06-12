@@ -5,8 +5,6 @@ import { getAllImportant } from '../services/Goals';
 
 
 export default function Maingoals() {
-
-
 const { user, updateUser } = useContext(userContext);
 const [importantGoals, setImportantGoals] = useState([]);
 
@@ -16,7 +14,7 @@ console.log(user)
 if (user) getAllImportant(user._id).then((data) => {
 setImportantGoals(data)
 })
-}, [])
+}, [user])
 
   return (
     <div className='mainGoals'>

@@ -1,13 +1,16 @@
 import React from "react";
 import { deleteCategory } from "../services/Categories";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import {userContext} from '../context/userContext'
 
 export default function Category({ item, setItem }) {
   // console.log(item, 'each item');
+  const {user} = useContext(userContext)
+
 
   const handleDelete = (e) => {
     deleteCategory(item._id).then((item) => {
-   setItem((items) => items.filter((el) => el._id !== item._id));
+      if (user) setItem((items) => items.filter((el) => el._id !== item._id));
     });
   };
 

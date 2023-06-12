@@ -20,12 +20,13 @@ function App() {
     //refreshed and set as a user
     if (accessToken) {
       apiService.profile(accessToken).then((data) => {
-        console.log(data);
+        console.log(data, 'profile data');
         updateUser(data);
       });
       setIsAuthenticated(true);
     }
   }
+
   useEffect(() => {
     checkToken();
   }, []);

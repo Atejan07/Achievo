@@ -10,6 +10,15 @@ export default function EachGoal({ goal, setGoal }) {
     });
   };
 
+  // function calculateDaysLeft(currentDate) {
+  //   const current = new Date(currentDate);
+  //   const targetDate = goal.deadline;
+  //   const differenceMs = targetDate - current;
+  //   const daysLeft = Math.floor(differenceMs / (1000 * 60 * 60 * 24));
+  //   return daysLeft;
+  // }
+
+
   return (
     <div>
       <h1>{goal.title}</h1>

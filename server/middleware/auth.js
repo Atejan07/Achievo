@@ -9,7 +9,7 @@ const authMiddleware = async (req, res, next) => {
 
   try {
     const { _id } = jwt.verify(token, SECRET_KEY);
-    const user = await User.findOne({ _id });
+    const user = await User.findOne({ _id }).populate("categories");
     if (!user) return res.sendStatus(401);
     req.user = user;
     next();
