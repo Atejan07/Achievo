@@ -43,34 +43,47 @@ const Register = ({ setIsAuthenticated }) => {
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <form className="form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="name@mail.com"
-          name="email"
-          value={state.email}
-          onChange={handleChange}
-        />
-        <input
-          type="password"
-          placeholder="password"
-          name="password"
-          value={state.password}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          placeholder="User Name"
-          name="userName"
-          value={state.userName}
-          onChange={handleChange}
-        />
-        <button className="form-submit" type="submit" disabled={validateForm()}>
-          Register
-        </button>
-      </form>
+    <div className="login">
+      <div className="login-box">
+        <h2>Register</h2>
+        <form className="user-box" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="name@mail.com"
+            name="email"
+            value={state.email}
+            onChange={handleChange}
+          />
+          <input
+            type="password"
+            placeholder="password"
+            name="password"
+            value={state.password}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            placeholder="User Name"
+            name="userName"
+            value={state.userName}
+            onChange={handleChange}
+          />
+          <button
+            className="register-button"
+            type="submit"
+            disabled={validateForm()}
+          >
+            Register
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </form>
+      </div>
+      <div className="right-side-home">
+        
+      </div>
     </div>
   );
 };

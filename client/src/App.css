@@ -46,6 +46,12 @@ li {
   color: #fff;
   text-align: center;
 }
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
 
 .login-box .user-box {
   position: relative;
@@ -354,8 +360,4 @@ background-color: #fff;
 
 .mainGoals p{
 color:aqua;
-}
-
-.login{
-height:100vh;
 }
