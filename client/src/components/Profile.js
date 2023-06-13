@@ -31,3 +31,4 @@ export default function Profile({ setIsAuthenticated }) {
     </div>
   );
 }
+
