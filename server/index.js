@@ -4,30 +4,31 @@ const userRouter = require('./routes/user')
 const categoriesRouter = require('./routes/categories')
 const goalsRouter = require('./routes/goals')
 const app = express();
+const multer = require('multer');
+
 
 
 
 
 const corsConfig = {
-    // REMOVE-START
     origin: 'http://localhost:3000',
     credentials: true,
-    // REMOVE-END
   };
   
 
 app.use(cors(corsConfig));
-// 2nd always json
 app.use(express.json());
-// 3rd always router
 app.use(userRouter);
 app.use(categoriesRouter);
 app.use(goalsRouter);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use('/uploads', express.static('uploads'));
+
 
   
   
 
-//MUST PUT ON 3001 -> BECAUSE REACT RUNS ON 3000
 const port = 3001;
 
   

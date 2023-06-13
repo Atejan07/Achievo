@@ -29,7 +29,7 @@ export default function VisionBoard() {
       <div>
         <div {...getRootProps()}>
           <input {...getInputProps()} />
-          <p>Drag and drop an image here or click to select an image.</p>
+         <button className="">Drop</button>
         </div>
         <div>
           {uploadedImages.map((imageUrl) => (
