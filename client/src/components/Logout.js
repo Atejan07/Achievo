@@ -22,14 +22,17 @@ export default function Logout({ setIsAuthenticated }) {
   };
 
   return (
-    <section>
+    <section className="log-out">
       <h2>Are you sure you want to log out?</h2>
+      <div className="both-buttons">
       <Link to="/">
-        <button className="confirm-btn">No</button>
+        <button className="confirm-btn-no">No
+        </button>
       </Link>
       <button className="confirm-btn" onClick={() => handleClick()}>
         Yes
       </button>
+      </div>
     </section>
   );
 }

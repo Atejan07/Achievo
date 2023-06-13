@@ -3,6 +3,8 @@ import { useDropzone } from "react-dropzone";
 import "../App.css";
 import ImageService from "../services/Images";
 import { getAllImages } from "../services/Images";
+import imagevector from "../images/image.png";
+
 
 export default function VisionBoard() {
   const [uploadedImages, setUploadedImages] = useState([]);
@@ -37,21 +39,23 @@ export default function VisionBoard() {
       <div>
         <div {...getRootProps()}>
           <input {...getInputProps()} />
-          <button className="image-grid" type="button">
-            Upload
-          </button>
+          <div className="upload-btn-wrapper">
+          <button type="button"  className="btn"><img src={imagevector}  className="image-vector"/> Select Files</button>
+          </div>
         </div>
-        <div className="vision-board">
-          <div className="image-grid-container">
-            {uploadedImages.map((image) => (
-              <div className="image-container" key={image._id}>
-                <img
-                  src={image.imageUrl}
-                  alt="Uploaded"
-                  className="image-grid-item"
-                />
-              </div>
-            ))}
+        <div className="image-grid">
+          <div className="vision-board">
+            <div className="image-grid-container">
+              {uploadedImages.map((image) => (
+                <div className="image-container" key={image._id}>
+                  <img
+                    src={image.imageUrl}
+                    alt="Uploaded"
+                    className="image-grid-item"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

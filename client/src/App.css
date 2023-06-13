@@ -456,3 +456,75 @@ background-color: #8800ff;
   height: 100%;
   object-fit: cover;
 }
+
+
+.image-vector{
+width:20px;
+}
+
+
+.upload-btn-wrapper {
+margin-left: 30px;
+margin-top: 20px;
+margin-bottom: 5px;
+}
+
+.btn {
+  border: 2px solid #2b2a2b;
+  color: #dc20e6;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.log-out{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 70px;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, .5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+  border-radius: 10px;
+  font-family: sans-serif;
+  background: #5d10a0;
+  text-align: center; 
+
+}
+
+.log-out h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+
+.log-out button {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #dc20e6;
+  border-style: none;
+  border-radius: 8px;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+  margin-left: 10px;
+}
+
