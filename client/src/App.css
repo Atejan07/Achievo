@@ -431,3 +431,22 @@ width: 500px;
 height: 500px;
 background-color: #8800ff;
 }
+
+
+
+.vision-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.image-grid-item {
+  width: 100%;
+  height: auto;
+}

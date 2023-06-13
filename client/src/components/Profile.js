@@ -5,7 +5,6 @@ import { getCategories } from "../services/Categories";
 import Navbar from "./Navbar";
 import CategoryList from "./CategoryLIst";
 import apiService from "../services/ApiService";
-import { useNavigate } from "react-router-dom";
 import { userContext } from "../context/userContext";
 import Maingoals from "./maingoals";
 

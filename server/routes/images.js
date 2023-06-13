@@ -8,7 +8,7 @@ const upload = multer({ dest: '../client/public/uploads/' });
 
 
 router.post('/api/upload', upload.single('image'), imageController.uploadImage);
-// router.get('/images', /* gets all images */);
+router.get('/images', imageController.getAllImages);
 
 
 

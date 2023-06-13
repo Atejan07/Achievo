@@ -14,3 +14,17 @@ exports.uploadImage = async (req, res) => {
     res.status(500).json({ error: "Error uploading image" });
   }
 };
+
+
+
+
+exports.getAllImages = async (req, res) => {
+  try {
+    const images = await Image.find();
+    res.json(images);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error retrieving images" });
+  }
+};
+
