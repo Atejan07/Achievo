@@ -2,6 +2,8 @@ import React, { useState , useContext } from "react";
 import { deleteGoal, postGoal } from "../services/Goals";
 import {userContext} from '../context/userContext'
 import { updateCompleted } from "../services/Goals";
+import importantImage from '../images/alert.png'
+import deleteImg from '../images/delete.png'
 
 
 export default function EachGoal({ goal, setGoal }) {
@@ -44,16 +46,20 @@ export default function EachGoal({ goal, setGoal }) {
   return (
     <div className="each-goal">
       <h1>{goal.title}</h1>
-      <p>{goal.description}</p>
-      <p>Days left to reach the Goal: {calculateDaysLeft(goal.deadline)}</p>
-      <h3>{goal.important ? "❤️" : ""}</h3>
+      <p>Description: {goal.description}</p>
+      <p>Deadline: {calculateDaysLeft(goal.deadline)}</p>
+      <div className="important">
+      <p>Completed</p> {goal.important && (
+        <img src={importantImage} alt="Important" className="important-image" />
+      )}
       <input
         className="important-input"
         type="checkbox"
         checked={goal.completed}
         onChange={handleCheckboxChange}
       />
-      <button onClick={handleDelete}>X</button>
+      </div>
+      <button onClick={handleDelete} className="delete-btn"><img src={deleteImg} alt="Important" className="deleteImg" /></button>
     </div>
   );
 }

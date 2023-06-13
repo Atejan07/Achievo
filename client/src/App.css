@@ -553,3 +553,43 @@ margin-bottom: 5px;
 margin-top: 50px;
 margin-right: 20px;
 }
+
+.important-image{
+width: 30px;
+}
+
+
+.each-goal{
+position: relative;
+margin-left: 20px;
+font-family: "Montserrat", sans-serif;
+
+}
+
+.each-goal p{
+font-weight: 400;
+}
+
+.goal-form{
+margin-top: 10px;
+margin-left: 20px;
+font-family: "Montserrat", sans-serif;
+}
+
+.deleteImg{
+width: 20px;
+}
+
+button.delete-btn {
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+
+button.delete-btn:focus {
+  outline: none;
+  position: absolute;
+  right: 0%;
+  top:0%;
+}
