@@ -42,6 +42,7 @@ export default function GoalForm({ setGoal, categoryId }) {
 
   return (
     <div className="goal-form">
+
       <input
         type="input"
         title={title}
@@ -56,14 +57,20 @@ export default function GoalForm({ setGoal, categoryId }) {
         placeholder="Description"
         className="goal-description"
       ></input>
+        <label  className="important-container">
         <input
-            className="important-input"
+           className="important-input"
             type="checkbox"
             checked={important}
             onChange={(e) => setImportant(e.target.checked)}
           ></input>
-      <button onClick={submitItem} className="goal-input">
+          </label>
+      <button onClick={submitItem} className="goal-button">
         Add
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
       </button>
       <div>
         <div>
