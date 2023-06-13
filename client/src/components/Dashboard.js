@@ -6,6 +6,7 @@ import Home from "../components/Home";
 import Profile from "../components/Profile";
 import { useContext } from "react";
 import { userContext } from "../context/userContext";
+import VisionBoard from "./VisionBoard";
 
 export default function Dashboard({ setIsAuthenticated }) {
   const user =useContext(userContext);
@@ -27,6 +28,10 @@ export default function Dashboard({ setIsAuthenticated }) {
         <Route
           path="/"
           element={<Home setIsAuthenticated={setIsAuthenticated} />}
+        />
+        <Route
+        path='/vision'
+        element={<VisionBoard/>}
         />
       </Routes>
     </section>

@@ -4,9 +4,9 @@ import logo from "../images/logo.png";
 import "../Navbar.css"
 
 
+
 const Navbar = ({ isAuthenticated }) => {
   console.log(isAuthenticated, "Authenticated");
-
   
   return (
     <div>
@@ -14,7 +14,10 @@ const Navbar = ({ isAuthenticated }) => {
     <nav className="nav-register">
       <ul>
         {isAuthenticated ? (
-          <>
+          <>  
+          <li >
+          <Link to="/vision">Vision Board</Link>
+           </li>
             <li>
               <Link to="/profile">Profile</Link>
             </li>

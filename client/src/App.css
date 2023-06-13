@@ -417,3 +417,16 @@ margin-left: 15px;
   right: 0;
   margin-right: 30px;
 }
+
+
+.vision h1{
+font-size: 500px;
+color: #fff;
+}
+
+
+.try{
+width: 500px;
+height: 500px;
+background-color: #8800ff;
+}

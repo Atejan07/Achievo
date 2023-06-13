@@ -7,7 +7,6 @@ import CategoryList from "./CategoryLIst";
 import apiService from "../services/ApiService";
 import { useNavigate } from "react-router-dom";
 import { userContext } from "../context/userContext";
-import ProfileNavbar from "./profileNavbar";
 import Maingoals from "./maingoals";
 
 export default function Profile({ setIsAuthenticated }) {
@@ -28,8 +27,6 @@ export default function Profile({ setIsAuthenticated }) {
 
   return (
     <div className="profile-page">
-      {/* <ProfileNavbar></ProfileNavbar> */}
-      {/* {user && <h3 style={{ color: "white" }}>Hello {user.userName}</h3>} */}
       <CategoryForm setItem={setItem} items={items}></CategoryForm>
       <CategoryList items={items} setItem={setItem}></CategoryList>
       <Maingoals></Maingoals>
