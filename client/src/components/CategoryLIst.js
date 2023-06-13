@@ -39,6 +39,7 @@ export default function CategoryList({ items, setItem }) {
               onOk={() => handleOk(itemId)}
               onCancel={() => handleCancel(itemId)}
               width={"1000px"}
+              okButtonProps={{ style: { backgroundColor: '#8800ff', borderColor: '#8800ff' } }}
             >
               <div style={{ maxHeight: "500px", overflow: "auto" }}>
                 <Goal categoryId={itemId} />

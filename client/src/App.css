@@ -554,13 +554,11 @@ margin-top: 50px;
 margin-right: 20px;
 }
 
-.important-image{
-width: 30px;
+.goal-title{
+position: relative;
 }
 
-
 .each-goal{
-position: relative;
 margin-left: 20px;
 font-family: "Montserrat", sans-serif;
 
@@ -623,8 +621,10 @@ button.delete-btn:focus {
 }
 
 .each-goal .important-image {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top:0;
 }
 
 .each-goal .important-input {
@@ -867,3 +867,8 @@ input:checked + .slider:before {
   width: 30px;
   height: 30px;
 }
+
+
+
+
+

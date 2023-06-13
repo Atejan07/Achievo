@@ -45,13 +45,15 @@ export default function EachGoal({ goal, setGoal }) {
 
   return (
     <div className="each-goal">
-      <h1>{goal.title}</h1>
+      <div className="important-parent">
+      <h1 className="goal-title">{goal.title}</h1>
       <p>Description: {goal.description}</p>
       <p>Deadline: {calculateDaysLeft(goal.deadline)}</p>
       <div className="important">
       {goal.important && (
         <img src={importantImage} alt="Important" className="important-image" />
       )}
+      </div>
       <p className="completed-label">Completed</p> 
       <label class="switch">
       <input

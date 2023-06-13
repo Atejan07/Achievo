@@ -74,7 +74,14 @@ export default function GoalForm({ setGoal, categoryId }) {
       </button>
       <div>
         <div>
-          <DatePicker value={selectedDate} onChange={handleDateChange} />
+        <DatePicker
+  value={selectedDate}
+  onChange={handleDateChange}
+  style={{ 
+    borderColor: "#5d10a0",
+    color: "#5d10a0"
+  }}
+/>
         </div>
       </div>
     </div>
