@@ -15,7 +15,7 @@ export default function VisionBoard() {
 
     try {
       const imageUrl = await ImageService(formData);
-      console.log(imageUrl, 'imaaage')
+      // console.log(imageUrl, 'imaaage')
       setUploadedImages([...uploadedImages, imageUrl]);
     } catch (error) {
       console.error(error);
@@ -31,6 +31,7 @@ export default function VisionBoard() {
         <button className="">Upload</button>
       </div>
       <div>
+        {/* <img src={'uploads/3c044d4f72be494442005c295d639aa4'} ></img> */}
         {uploadedImages.map((imageUrl) => (
           <img key={imageUrl} src={imageUrl}/>
         ))}

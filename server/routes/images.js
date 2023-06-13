@@ -4,10 +4,11 @@ const imageController = require("../controllers/images");
 const multer = require('multer');
 
 
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({ dest: '../client/public/uploads/' });
 
 
 router.post('/api/upload', upload.single('image'), imageController.uploadImage);
+// router.get('/images', /* gets all images */);
 
 
 
