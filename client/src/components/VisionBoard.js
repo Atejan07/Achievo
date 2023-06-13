@@ -37,18 +37,19 @@ export default function VisionBoard() {
   }, []);
 
   return (
+    <div><button className="image-grid" type="button">
+    Upload
+    </button>
     <div className="vision-board">
     <div {...getRootProps()}>
       <input {...getInputProps()} />
-      <button className="image-grid" type="button">
-        Upload
-      </button>
     </div>
     <div className="image-grid-container">
       {uploadedImages.map((image) => (
         <img key={image._id} src={image.imageUrl} alt="Uploaded" className="image-grid-item" />
       ))}
     </div>
+  </div>
   </div>
   );
 }

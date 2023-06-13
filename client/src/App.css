@@ -434,6 +434,26 @@ background-color: #8800ff;
 
 
 
+/* .vision-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-rows: 1fr auto;
+
+}
+
+.image-grid-item {
+  width: 100%;
+  height: auto;
+  display: block;
+} */
+
+
 .vision-board {
   display: flex;
   flex-direction: column;
@@ -443,10 +463,12 @@ background-color: #8800ff;
 .image-grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 10px;
+  grid-template-rows: 1fr auto;
 }
 
 .image-grid-item {
   width: 100%;
   height: auto;
+  display: block;
+  object-fit: contain; 
 }
