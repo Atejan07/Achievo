@@ -227,6 +227,7 @@ lottie-player {
   border-style: none;
   height: 200px;
   background-color: #8800ff;
+  margin-top: 50px;
   margin-left: 30px;
   border-radius: 10px;
   position: relative;
@@ -244,9 +245,9 @@ lottie-player {
 
 .category-list {
   display: flex;
-  margin-left: 10px;
-  margin: 100px;
+  /* justify-content: space-around; */
   flex-wrap: wrap;
+  margin-top: 50px;
 }
 
 .profile-page {
@@ -545,4 +546,5 @@ margin-bottom: 5px;
 .heading {
   color: #fff;
 }
+
 

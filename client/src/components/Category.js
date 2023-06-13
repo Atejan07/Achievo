@@ -14,7 +14,7 @@ export default function Category({ item, setItem }) {
   };
 
   return (
-    <div>
+    <div  className="each-category">
       <h1>{item.title}</h1>
       <button onClick={handleDelete}>X</button>
     </div>
