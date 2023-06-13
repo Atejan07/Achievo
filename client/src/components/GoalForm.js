@@ -35,9 +35,7 @@ export default function GoalForm({ setGoal, categoryId }) {
       important: important,
 
     };
-    // console.log(categoryId, 'in goal form')
     postGoal(goal, categoryId).then((newGoal) => {
-      // console.log(newGoal)
       setGoal((goals) => [...goals, newGoal]);
     });
   };

@@ -28,8 +28,6 @@ export default function Home({ setIsAuthenticated }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await apiService.login(state);
-    // res= { accessToken : string, user: {...}}
-    // console.log(res);
     if (res.error) {
       alert(`${res.message}`);
       setState(initialState);

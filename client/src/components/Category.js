@@ -4,7 +4,6 @@ import { useState, useContext } from "react";
 import {userContext} from '../context/userContext'
 
 export default function Category({ item, setItem }) {
-  // console.log(item, 'each item');
   const {user} = useContext(userContext)
 
 

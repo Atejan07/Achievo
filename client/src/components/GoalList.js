@@ -3,7 +3,6 @@ import EachGoal from "./EachGoal";
 
 
 export default function GoalList({ goals, setGoal }) {
-  // console.log(goals, 'in goal list')
   return (
     <div className='goal-list' >
       {goals.map((goal) => {

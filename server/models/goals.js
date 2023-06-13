@@ -33,7 +33,6 @@ const addGoal = async (goal, categoryId) => {
     { $push: { goals: res._id } },
     { new: true }
   );
-  // console.log("SAVED GOAL ID TO CAT", result);
   return res;
 };
 
@@ -67,9 +66,7 @@ const updateCompleted = async (importantGoal) => {
   try {
     console.log(importantGoal, 'this is important')
     const update = { completed: !importantGoal.completed};
-    // console.log(update, 'update here')
     const goal = await Goals.findByIdAndUpdate( importantGoal._id , update ,{new: true});
-    // console.log(goal, 'hereee')
     return goal;
   } catch (error) {
     console.error(error);

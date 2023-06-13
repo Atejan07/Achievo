@@ -2,7 +2,6 @@ const model = require("../models/goals");
 
 const getGoals = async (req, res) => {
   try {
-    // console.log(req.body)
     const catId = req.params.id
     const result = await model.getGoals(catId);
     res.status = 200;

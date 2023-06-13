@@ -18,7 +18,6 @@ export default function Profile({ setIsAuthenticated }) {
   const [state, setState] = useState(initialState);
   const { user, updateUser } = useContext(userContext);
 
-  // console.log(user);
   useEffect(() => {
    console.log(user , 'profile user obj');
    if (user) setItem(user.categories);

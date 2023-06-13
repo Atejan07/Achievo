@@ -32,10 +32,6 @@ const login = async (req, res) => {
   try {
     const user = await model.findOne({ email: email }).populate("categories");
     console.log(user);
-    // const safeUser = {
-    //   userName: user.userName,
-    //   email: user.email,
-    // }
     const validatedPass = await bcrypt.compare(password, user.password);
     if (!validatedPass) throw new Error();
     const accessToken = jwt.sign({ _id: user._id }, SECRET_KEY);

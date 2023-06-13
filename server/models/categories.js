@@ -20,13 +20,11 @@ const addCategory = async (category, userId) => {
     goals: []
   }
   const newCategory = await Categories.create(cat);
-  //  console.log(newCategory , 'zuzzzz')
   const result = await User.findOneAndUpdate(
     { _id: userId },
     { $push: { categories: newCategory._id } },
     { new: true }
   );
-  //  console.log('this one', userId)
   return newCategory;
 };
 
