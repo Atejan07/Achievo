@@ -52,13 +52,16 @@ export default function EachGoal({ goal, setGoal }) {
       {goal.important && (
         <img src={importantImage} alt="Important" className="important-image" />
       )}
-      <p>Completed</p> 
+      <p className="completed-label">Completed</p> 
+      <label class="switch">
       <input
         className="important-input"
         type="checkbox"
         checked={goal.completed}
         onChange={handleCheckboxChange}
       />
+      <span class="slider round"></span>
+      </label>
       </div>
       <button onClick={handleDelete} className="delete-btn"><img src={deleteImg} alt="Important" className="deleteImg" /></button>
     </div>
