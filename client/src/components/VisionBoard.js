@@ -10,11 +10,8 @@ export default function VisionBoard() {
   const onDrop = async (acceptedFiles) => {
     const formData = new FormData();
     formData.append("image", acceptedFiles[0]);
-    // console.log(formData, 'server')
     try {
-      // console.log(formData, 'server')
       const image = await ImageService(formData);
-      console.log(image, 'server')
       setUploadedImages([...uploadedImages, image]);
     } catch (error) {
       console.error(error);
@@ -27,29 +24,37 @@ export default function VisionBoard() {
     const fetchImages = async () => {
       try {
         const images = await getAllImages();
-        // console.log(images, 'Gary images')
         setUploadedImages(images);
       } catch (error) {
         console.error(error);
       }
     };
     fetchImages();
-  }, []);
+  }, [uploadedImages]);
 
   return (
-    <div><button className="image-grid" type="button">
-    Upload
-    </button>
-    <div className="vision-board">
-    <div {...getRootProps()}>
-      <input {...getInputProps()} />
+    <div>
+      <div>
+        <div {...getRootProps()}>
+          <input {...getInputProps()} />
+          <button className="image-grid" type="button">
+            Upload
+          </button>
+        </div>
+        <div className="vision-board">
+          <div className="image-grid-container">
+            {uploadedImages.map((image) => (
+              <div className="image-container" key={image._id}>
+                <img
+                  src={image.imageUrl}
+                  alt="Uploaded"
+                  className="image-grid-item"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
-    <div className="image-grid-container">
-      {uploadedImages.map((image) => (
-        <img key={image._id} src={image.imageUrl} alt="Uploaded" className="image-grid-item" />
-      ))}
-    </div>
-  </div>
-  </div>
   );
 }
