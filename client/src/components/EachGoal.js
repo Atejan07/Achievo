@@ -49,9 +49,10 @@ export default function EachGoal({ goal, setGoal }) {
       <p>Description: {goal.description}</p>
       <p>Deadline: {calculateDaysLeft(goal.deadline)}</p>
       <div className="important">
-      <p>Completed</p> {goal.important && (
+      {goal.important && (
         <img src={importantImage} alt="Important" className="important-image" />
       )}
+      <p>Completed</p> 
       <input
         className="important-input"
         type="checkbox"

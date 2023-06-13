@@ -593,3 +593,54 @@ button.delete-btn:focus {
   right: 0%;
   top:0%;
 }
+
+
+
+
+.each-goal {
+  padding: 10px;
+  margin-bottom: 10px;
+  position: relative;
+
+}
+
+.each-goal h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.each-goal p {
+  margin: 5px 0;
+}
+
+.each-goal .important {
+  display: flex;
+  align-items: center;
+}
+
+.each-goal .important p {
+  margin-right: 10px;
+}
+
+.each-goal .important-image {
+  width: 20px;
+  height: 20px;
+}
+
+.each-goal .important-input {
+  margin-left: 10px;
+}
+
+.each-goal .delete-btn {
+  position: absolute;
+  top: 0;
+  margin-left: 400px;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.each-goal .delete-btn img {
+  width: 20px;
+  height: 20px;
+}
