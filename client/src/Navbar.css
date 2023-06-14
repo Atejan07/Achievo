@@ -20,9 +20,9 @@ body {
   z-index: 999;
 }
 
-nav ul{
-display: flex;
-flex-direction: row;
+nav ul {
+  display: flex;
+  flex-direction: row;
 }
 
 nav {
@@ -65,22 +65,22 @@ nav .dot {
   transition: all 0.2s ease-in-out;
 }
 
-nav a:nth-child(1):hover ~ .dot {
+nav a:nth-child(1):hover~.dot {
   transform: translateX(30px);
   opacity: 1;
 }
 
-nav a:nth-child(2):hover ~ .dot {
+nav a:nth-child(2):hover~.dot {
   transform: translateX(110px);
   opacity: 1;
 }
 
-nav a:nth-child(3):hover ~ .dot {
+nav a:nth-child(3):hover~.dot {
   transform: translateX(200px);
   opacity: 1;
 }
 
-nav a:nth-child(4):hover ~ .dot {
+nav a:nth-child(4):hover~.dot {
   transform: translateX(285px);
   opacity: 1;
 }

@@ -6,7 +6,7 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const updateUser = (newUser) => {
-  setUser(newUser);
+    setUser(newUser);
   };
 
   return (

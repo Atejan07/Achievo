@@ -9,7 +9,7 @@ import { userContext } from "../context/userContext";
 import VisionBoard from "./VisionBoard";
 
 export default function Dashboard({ setIsAuthenticated }) {
-  const user =useContext(userContext);
+  const user = useContext(userContext);
   return (
     <section className="dashboard">
       <Routes>
@@ -29,10 +29,7 @@ export default function Dashboard({ setIsAuthenticated }) {
           path="/"
           element={<Home setIsAuthenticated={setIsAuthenticated} />}
         />
-        <Route
-        path='/vision'
-        element={<VisionBoard/>}
-        />
+        <Route path="/vision" element={<VisionBoard />} />
       </Routes>
     </section>
   );

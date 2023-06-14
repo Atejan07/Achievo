@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Category from "./Category";
 import Goal from "./Goal";
-import { Button, Modal } from "antd";
+import { Modal } from "antd";
 
 export default function CategoryList({ items, setItem }) {
   const [modalStates, setModalStates] = useState({});
@@ -39,7 +39,9 @@ export default function CategoryList({ items, setItem }) {
               onOk={() => handleOk(itemId)}
               onCancel={() => handleCancel(itemId)}
               width={"1000px"}
-              okButtonProps={{ style: { backgroundColor: '#8800ff', borderColor: '#8800ff' } }}
+              okButtonProps={{
+                style: { backgroundColor: "#8800ff", borderColor: "#8800ff" },
+              }}
             >
               <div style={{ maxHeight: "500px", overflow: "auto" }}>
                 <Goal categoryId={itemId} />

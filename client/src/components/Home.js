@@ -1,8 +1,6 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import apiService from "../services/ApiService";
-import logo from "../images/logo.png";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { userContext } from "../context/userContext";
@@ -47,46 +45,46 @@ export default function Home({ setIsAuthenticated }) {
 
   return (
     <div className="login">
-        <div className="login-box">
-          <h1>Log In</h1>
-          <form className="user-box" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="name@email.com"
-              value={state.email}
-              name="email"
-              onChange={handleChange}
-            ></input>
-            <input
-              type="password"
-              placeholder="password"
-              name="password"
-              value={state.password}
-              onChange={handleChange}
-            ></input>
-            <button
-              type="submit"
-              className="register-button"
-              disabled={validateForm()}
-            >
-              Log In
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-          </form>
-        </div>
-        <div className="right-side-home">
-          <lottie-player
-            src="https://assets4.lottiefiles.com/packages/lf20_jsilmnl8.json"
-            background="transparent"
-            speed="1"
-            loop
-            autoplay
-            className="main-animation"
-          ></lottie-player>
-        </div>
-        </div>
+      <div className="login-box">
+        <h1>Log In</h1>
+        <form className="user-box" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="name@email.com"
+            value={state.email}
+            name="email"
+            onChange={handleChange}
+          ></input>
+          <input
+            type="password"
+            placeholder="password"
+            name="password"
+            value={state.password}
+            onChange={handleChange}
+          ></input>
+          <button
+            type="submit"
+            className="register-button"
+            disabled={validateForm()}
+          >
+            Log In
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </form>
+      </div>
+      <div className="right-side-home">
+        <lottie-player
+          src="https://assets4.lottiefiles.com/packages/lf20_jsilmnl8.json"
+          background="transparent"
+          speed="1"
+          loop
+          autoplay
+          className="main-animation"
+        ></lottie-player>
+      </div>
+    </div>
   );
 }

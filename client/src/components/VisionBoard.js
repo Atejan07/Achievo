@@ -5,7 +5,6 @@ import ImageService from "../services/Images";
 import { getAllImages } from "../services/Images";
 import imagevector from "../images/image.png";
 
-
 export default function VisionBoard() {
   const [uploadedImages, setUploadedImages] = useState([]);
 
@@ -40,7 +39,9 @@ export default function VisionBoard() {
         <div {...getRootProps()}>
           <input {...getInputProps()} />
           <div className="upload-btn-wrapper">
-          <button type="button"  className="btn"><img src={imagevector}  className="image-vector"/> Select Files</button>
+            <button type="button" className="btn">
+              <img src={imagevector} className="image-vector" /> Select Files
+            </button>
           </div>
         </div>
         <div className="image-grid">

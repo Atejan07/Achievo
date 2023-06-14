@@ -1,11 +1,10 @@
 import React from "react";
 import { deleteCategory } from "../services/Categories";
-import { useState, useContext } from "react";
-import {userContext} from '../context/userContext'
+import { useContext } from "react";
+import { userContext } from "../context/userContext";
 
 export default function Category({ item, setItem }) {
-  const {user} = useContext(userContext)
-
+  const { user } = useContext(userContext);
 
   const handleDelete = (e) => {
     deleteCategory(item._id).then((item) => {
@@ -14,7 +13,7 @@ export default function Category({ item, setItem }) {
   };
 
   return (
-    <div  className="each-category">
+    <div className="each-category">
       <h1>{item.title}</h1>
       <button onClick={handleDelete}>X</button>
     </div>

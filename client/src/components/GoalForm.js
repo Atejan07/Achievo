@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { postGoal } from "../services/Goals";
-import { getGoals } from "../services/Goals";
 import { DatePicker } from "antd";
 const { MonthPicker } = DatePicker;
 
@@ -10,7 +9,6 @@ export default function GoalForm({ setGoal, categoryId }) {
   const [description, setDescription] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
   const [important, setImportant] = useState(false);
-
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -39,10 +37,9 @@ export default function GoalForm({ setGoal, categoryId }) {
       setGoal((goals) => [...goals, newGoal]);
     });
   };
-  
+
   return (
     <div className="goal-form">
-
       <input
         type="input"
         title={title}
@@ -57,31 +54,31 @@ export default function GoalForm({ setGoal, categoryId }) {
         placeholder="Description"
         className="goal-description"
       ></input>
-        <label  className="important-container">
+      <label className="important-container">
         <input
-           className="important-input"
-            type="checkbox"
-            checked={important}
-            onChange={(e) => setImportant(e.target.checked)}
-          ></input>
-          </label>
+          className="important-input"
+          type="checkbox"
+          checked={important}
+          onChange={(e) => setImportant(e.target.checked)}
+        ></input>
+      </label>
       <button onClick={submitItem} className="goal-button">
         Add
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
       <div>
         <div>
-        <DatePicker
-  value={selectedDate}
-  onChange={handleDateChange}
-  style={{ 
-    borderColor: "#5d10a0",
-    color: "#5d10a0"
-  }}
-/>
+          <DatePicker
+            value={selectedDate}
+            onChange={handleDateChange}
+            style={{
+              borderColor: "#5d10a0",
+              color: "#5d10a0",
+            }}
+          />
         </div>
       </div>
     </div>

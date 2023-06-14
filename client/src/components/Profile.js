@@ -1,10 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Routes, Route } from "react-router-dom";
 import CategoryForm from "./CategoryForm";
-import { getCategories } from "../services/Categories";
-import Navbar from "./Navbar";
 import CategoryList from "./CategoryLIst";
-import apiService from "../services/ApiService";
 import { userContext } from "../context/userContext";
 import Maingoals from "./maingoals";
 
@@ -18,9 +14,8 @@ export default function Profile({ setIsAuthenticated }) {
   const { user, updateUser } = useContext(userContext);
 
   useEffect(() => {
-   if (user) setItem(user.categories);
+    if (user) setItem(user.categories);
   }, [user]);
-
 
   return (
     <div className="profile-page">
@@ -30,4 +25,3 @@ export default function Profile({ setIsAuthenticated }) {
     </div>
   );
 }
-
