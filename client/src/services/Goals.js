@@ -6,7 +6,6 @@ export async function getGoals(categoryId) {
   return json;
 }
 
-//TODO-> categoryId
 export async function postGoal(item, categoryId) {
   const res = await fetch(URL + "/goals", {
     method: "POST",

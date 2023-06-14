@@ -46,7 +46,9 @@ export default function EachGoal({ goal, setGoal }) {
   return (
     <div className="each-goal">
       <div className="important-parent">
+        <div className="main-title-goal">
       <h1 className="goal-title">{goal.title}</h1>
+      </div>
       <p>Description: {goal.description}</p>
       <p>Deadline: {calculateDaysLeft(goal.deadline)}</p>
       <div className="important">

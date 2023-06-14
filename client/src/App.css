@@ -15,8 +15,8 @@ li {
   background-size: 100% auto;
   margin: 0;
   padding: 0;
-  width: 525px;
-  height: 671px;
+  width: 540px;
+  height: 767px;
   position: relative;
   left: 930px;
   /* position absolute; */
@@ -554,8 +554,10 @@ margin-top: 50px;
 margin-right: 20px;
 }
 
-.goal-title{
-position: relative;
+.main-title-goal {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .each-goal{

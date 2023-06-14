@@ -2,7 +2,7 @@ const model = require("../models/categories");
 
 const getCategories = async (req, res) => {
   try {
-    const result = await model.getCategories()
+    const result = await model.getCategories();
     res.status = 200;
     res.json(result);
   } catch (error) {
@@ -13,10 +13,11 @@ const getCategories = async (req, res) => {
 
 const addCategory = async (req, res) => {
   try {
-    console.log(req.body, "body");
-    let category = await model.addCategory(req.body.item.title, req.body.userId);
+    let category = await model.addCategory(
+      req.body.item.title,
+      req.body.userId
+    );
     res.status = 201;
-    console.log(category , 'category')
     res.json(category);
   } catch (error) {
     res.status = 400;
@@ -27,10 +28,8 @@ const addCategory = async (req, res) => {
 const deleteCategory = async (req, res) => {
   try {
     let id = req.params.id;
-    console.log(id);
     let deleteItem = await model.deleteCategory(id);
     res.status = 202;
-    console.log(deleteItem);
     res.json(deleteItem);
   } catch (error) {
     res.status = 400;

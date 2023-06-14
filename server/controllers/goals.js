@@ -2,7 +2,7 @@ const model = require("../models/goals");
 
 const getGoals = async (req, res) => {
   try {
-    const catId = req.params.id
+    const catId = req.params.id;
     const result = await model.getGoals(catId);
     res.status = 200;
     res.json(result);
@@ -14,7 +14,6 @@ const getGoals = async (req, res) => {
 
 const addGoal = async (req, res) => {
   try {
-
     let goal = await model.addGoal(req.body, req.body.categoryId);
     res.status = 201;
 
@@ -37,11 +36,9 @@ const deleteGoal = async (req, res) => {
   }
 };
 
-
 const getImportant = async (req, res) => {
   try {
     const userId = req.params.id;
-    console.log(userId)
     const result = await model.getImportantGoals(userId);
     res.status = 200;
     res.json(result);
@@ -51,22 +48,22 @@ const getImportant = async (req, res) => {
   }
 };
 
+const updateCompleted = async (req, res) => {
+  try {
+    const goal = req.body;
+    const result = await model.updateCompleted(goal);
+    res.status = 200;
+    res.json(result);
+  } catch (error) {
+    res.status = 400;
+    console.log = { error: error.message };
+  }
+};
 
-
-const updateCompleted = async (req, res) =>{
-try{
-const goal = req.body;
-// console.log(goal, 'completed nowww')
-const result = await model.updateCompleted(goal);
-res.status = 200;
-res.json(result)
-}catch(error){
-res.status = 400;
-console.log = { error: error.message };
-}
-}
-
-
-
-
-module.exports = { getGoals, addGoal, deleteGoal, getImportant, updateCompleted };
+module.exports = {
+  getGoals,
+  addGoal,
+  deleteGoal,
+  getImportant,
+  updateCompleted,
+};

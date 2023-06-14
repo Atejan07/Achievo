@@ -14,11 +14,10 @@ const getCategories = async () => {
 };
 
 const addCategory = async (category, userId) => {
-  console.log(category);
   const cat = {
     title: category,
-    goals: []
-  }
+    goals: [],
+  };
   const newCategory = await Categories.create(cat);
   const result = await User.findOneAndUpdate(
     { _id: userId },

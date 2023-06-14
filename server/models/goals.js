@@ -60,21 +60,18 @@ const getImportantGoals = async (id) => {
   }
 };
 
-
-
 const updateCompleted = async (importantGoal) => {
   try {
-    console.log(importantGoal, 'this is important')
-    const update = { completed: !importantGoal.completed};
-    const goal = await Goals.findByIdAndUpdate( importantGoal._id , update ,{new: true});
+    const update = { completed: !importantGoal.completed };
+    const goal = await Goals.findByIdAndUpdate(importantGoal._id, update, {
+      new: true,
+    });
     return goal;
   } catch (error) {
     console.error(error);
     throw error;
   }
 };
-
-
 
 module.exports = {
   Goals,

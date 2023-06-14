@@ -7,7 +7,6 @@ export async function getCategories() {
 }
 
 export async function postCategory(item, userId) {
-  console.log(userId, 'where my user at')
   const res = await fetch(URL + "/categories", {
     method: "POST",
     headers: {
@@ -16,7 +15,6 @@ export async function postCategory(item, userId) {
     body: JSON.stringify({item, userId}),
   });
   const category= await res.json();
-  console.log(category , 'apiservice')
   return category;
 }
 

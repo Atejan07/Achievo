@@ -25,21 +25,21 @@ export default function GoalForm({ setGoal, categoryId }) {
     const goalsDescription = description;
     const selectDate = selectedDate;
     if (!goalsTitle) return alert("Need to provide a Goal");
-    setTitle("");
-    setImportant(false);
-    setDescription('');
     const goal = {
       title: goalsTitle,
       description: goalsDescription,
       deadline: selectDate,
       important: important,
-
     };
+    setTitle("");
+    setImportant(false);
+    setDescription("");
+    setSelectedDate(null);
     postGoal(goal, categoryId).then((newGoal) => {
       setGoal((goals) => [...goals, newGoal]);
     });
   };
-
+  
   return (
     <div className="goal-form">
 

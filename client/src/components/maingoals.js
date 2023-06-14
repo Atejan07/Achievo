@@ -12,7 +12,6 @@ const [importantGoals, setImportantGoals] = useState([]);
 
 
 useEffect(()=> {
-console.log(user)
 if (user) getAllImportant(user._id).then((data) => {
 setImportantGoals(data)
 })
