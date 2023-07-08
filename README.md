@@ -11,15 +11,15 @@ Track progress by checking off completed goals ✅
 
 Vision board page to add and organize images for visualizing goals.
 
-![alt text](/client/public/images/goal-track.png)
-![alt text](/client/public/images/Dashboard.png)
-![alt text](/client/public/images/vision-board.png)
+![alt text](/client/public/src/images/goal-track.png)
+![alt text](/client/public/src/images/Dashboard.png)
+![alt text](/client/public/src/images/vision-board.png)
 
 ## Installation
 
 - Run `npm install` on both the Server folder and Client folder.
 
-## Starting MySQL
+## Starting MongoDB
 
 ```bash
 Go to https://www.mongodb.com/docs/manual/reference/connection-string/ to get your own MongoDB URI.
