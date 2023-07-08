@@ -21,13 +21,14 @@ Vision board page to add and organize images for visualizing goals.
 
 ## Starting MongoDB
 
-```bash
+
 Go to https://www.mongodb.com/docs/manual/reference/connection-string/ to get your own MongoDB URI.
-```
+
 
 The MongoDB URI follow this format:
-
+```bash
 mongodb://[username:password@]host1[:port1],...hostN[:portN][/[defaultauthdb][?options]]
+```
 
 Include your MongoDB URI in your .env file in your Server folder.
 
