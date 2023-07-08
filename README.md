@@ -11,8 +11,9 @@ Track progress by checking off completed goals ✅
 
 Vision board page to add and organize images for visualizing goals.
 
-![alt text](/client/public/images/homepage.png)
-
+![alt text](/client/public/images/goal-track.png)
+![alt text](/client/public/images/Dashboard.png)
+![alt text](/client/public/images/vision-board.png)
 
 ## Installation
 
